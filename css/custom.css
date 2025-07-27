@@ -125,6 +125,15 @@
     .heading-section h2{
       text-align: center;
     }
+    .home-btn{
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .home-btn a{
+      margin: 5px;
+    }
  
 		.whatsapp-float .text-success {
 			display: none !important; /* Hide text on mobile */
