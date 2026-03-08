@@ -12,6 +12,27 @@
 - Specializes in Laravel, Livewire, REST APIs, real-time systems, admin panels, SaaS apps, and backend-heavy product architecture.
 - Comfortable leading developers, managing delivery quality, and implementing CI/CD workflows.
 
+## Why Hire Nitin
+- Strong in Laravel backend architecture, Livewire dashboards, REST APIs, and real-time application flows.
+- Comfortable owning full project delivery from planning to deployment and post-launch improvements.
+- Can work as an individual contributor or lead developers, delivery quality, and CI/CD workflows.
+- Builds admin systems, internal tools, SaaS modules, e-commerce dashboards, automation workflows, and backend-heavy products.
+
+## Services
+- Laravel application development
+- Livewire dashboard and admin panel development
+- REST API development and backend integrations
+- Existing Laravel project takeover and optimization
+- Real-time chat, notification, and activity systems
+- Bug fixing, performance optimization, and database tuning
+
+## Hiring Snapshot
+- Hiring Fit: Backend-heavy Laravel products, internal tools, admin systems, e-commerce operations, and workflow automation.
+- Engagement: Freelance, contract delivery, project-based builds, and ongoing development support.
+- Current Ownership: Lead Developer & Manager at State Infotech.
+- Fastest Contact: WhatsApp or email.
+- Download Profile: nitin-kumar-hire-snapshot.txt
+
 ## Contact
 - Phone: +91 98088 40801
 - Email: wwwnk9333@gmail.com
@@ -59,6 +80,8 @@
 
 ## Suggested Questions
 - What is Nitin's current role?
+- Why should a company hire Nitin?
+- What services does Nitin offer?
 - How many years of experience does Nitin have?
 - Which technologies does Nitin use?
 - What are Nitin's recent projects?

@@ -1,0 +1,37 @@
+NITIN KUMAR - HIRE SNAPSHOT
+
+Title: Laravel Developer & Backend Engineer
+Current Role: Lead Developer & Manager
+Company: State Infotech
+Experience: 4+ years
+Location: Noida, Uttar Pradesh, India
+Availability: Freelancing, contract delivery, product builds, backend-heavy Laravel projects, and custom software builds
+
+CORE STRENGTHS
+- Laravel backend architecture
+- Livewire dashboards and admin panels
+- REST APIs and backend integrations
+- Real-time application flows
+- MySQL performance and secure data handling
+- Delivery ownership, CI/CD, and team coordination
+
+SERVICES
+- Laravel application development
+- Livewire dashboard and admin panel development
+- Existing Laravel project takeover and optimization
+- REST API development and integrations
+- Real-time chat and notification features
+- Bug fixing, performance tuning, and maintenance
+
+PROJECT TYPES
+- Internal tools and operations dashboards
+- SaaS modules and backend-heavy products
+- E-commerce admin systems
+- Automation and workflow interfaces
+- Security and access-control dashboards
+
+CONTACT
+WhatsApp: https://wa.me/98008840801
+Email: wwwnk9333@gmail.com
+LinkedIn: https://www.linkedin.com/in/nitin-kumar-1a9162132/
+Portfolio: https://nitin-kumar7.github.io/portfolio/

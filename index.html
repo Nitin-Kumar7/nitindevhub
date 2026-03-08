@@ -191,6 +191,25 @@
                 transform: translateX(-50%);
             }
         }
+
+        @media (max-width: 639px) {
+            .grid-shell {
+                background-size: 34px 34px;
+            }
+
+            .eyebrow {
+                gap: 0.55rem;
+                padding: 0.55rem 0.8rem;
+                font-size: 0.65rem;
+                letter-spacing: 0.1em;
+                line-height: 1.25;
+                white-space: normal;
+            }
+
+            .marquee-track {
+                gap: 0.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -209,14 +228,14 @@
 
     <nav x-data="{ open: false }"
         class="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-coal-900/75 backdrop-blur-xl">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <a href="#hero" class="flex items-center gap-3">
-                <div class="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+            <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+            <a href="#hero" class="flex min-w-0 items-center gap-2.5 sm:gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 sm:h-11 sm:w-11">
                     <span class="mono text-sm text-ember-400">VS</span>
                 </div>
-                <div>
-                    <div class="mono text-xs uppercase tracking-[0.35em] text-zinc-500">Portfolio Shell</div>
-                    <div class="text-lg font-bold tracking-tight text-white">Nitin Kumar</div>
+                <div class="min-w-0">
+                    <div class="mono hidden text-xs uppercase tracking-[0.35em] text-zinc-500 sm:block">Portfolio Shell</div>
+                    <div class="truncate text-base font-bold tracking-tight text-white sm:text-lg">Nitin Kumar</div>
                 </div>
             </a>
 
@@ -225,6 +244,7 @@
                 <a href="#projects" class="transition hover:text-white">Case Files</a>
                 <a href="#timeline" class="transition hover:text-white">Execution</a>
                 <a href="#skills" class="transition hover:text-white">Stack</a>
+                <a href="#hire" class="transition hover:text-white">Hire</a>
                 <a href="#agent" class="transition hover:text-white">Agent</a>
                 <a href="#contact"
                     class="rounded-full border border-white/10 bg-white/5 px-4 py-2 mono text-xs uppercase tracking-[0.2em] text-zinc-100 transition hover:border-ember-400 hover:bg-ember-500/10">
@@ -233,7 +253,7 @@
             </div>
 
             <button type="button" @click="open = !open"
-                class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-200 md:hidden">
+                class="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-200 md:hidden">
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"
                         d="M4 7h16M4 12h16M4 17h16"></path>
@@ -241,32 +261,33 @@
             </button>
         </div>
 
-        <div x-cloak x-show="open" x-transition class="border-t border-white/5 bg-coal-900/95 px-6 pb-6 md:hidden">
-            <div class="flex flex-col gap-4 pt-5 mono text-sm text-zinc-300">
-                <a href="#hero" @click="open = false">Overview</a>
-                <a href="#projects" @click="open = false">Case Files</a>
-                <a href="#timeline" @click="open = false">Execution</a>
-                <a href="#skills" @click="open = false">Stack</a>
-                <a href="#agent" @click="open = false">Agent</a>
-                <a href="#contact" @click="open = false">Open Channel</a>
+            <div x-cloak x-show="open" x-transition class="border-t border-white/5 bg-coal-900/95 px-4 pb-5 sm:px-6 sm:pb-6 md:hidden">
+                <div class="flex flex-col gap-4 pt-5 mono text-sm text-zinc-300">
+                    <a href="#hero" @click="open = false">Overview</a>
+                    <a href="#projects" @click="open = false">Case Files</a>
+                    <a href="#timeline" @click="open = false">Execution</a>
+                    <a href="#skills" @click="open = false">Stack</a>
+                    <a href="#hire" @click="open = false">Hire</a>
+                    <a href="#agent" @click="open = false">Agent</a>
+                    <a href="#contact" @click="open = false">Open Channel</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <main class="relative z-10 pt-24">
-        <section id="hero" class="px-6 pb-16 pt-10 md:pt-16">
-            <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-                <div class="reveal space-y-8">
+    <main class="relative z-10 pt-20 sm:pt-24">
+        <section id="hero" class="px-4 pb-12 pt-8 sm:px-6 sm:pb-16 sm:pt-10 md:pt-16">
+            <div class="mx-auto grid max-w-7xl items-center gap-8 sm:gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+                <div class="reveal space-y-6 sm:space-y-8">
                     <span class="eyebrow">Laravel Developer / Backend Engineer</span>
-                    <div class="space-y-6">
-                        <p class="mono text-xs uppercase tracking-[0.35em] text-zinc-500">Noida, Uttar Pradesh / 4+ years / Laravel / Livewire / Real-time apps</p>
-                        <h1 class="max-w-4xl text-5xl font-bold leading-[0.95] tracking-tight text-white md:text-7xl xl:text-[5.5rem]">
+                    <div class="space-y-5 sm:space-y-6">
+                        <p class="mono text-[10px] uppercase leading-5 tracking-[0.28em] text-zinc-500 sm:text-xs sm:tracking-[0.35em]">Noida, Uttar Pradesh / 4+ years / Laravel / Livewire / Real-time apps</p>
+                        <h1 class="max-w-4xl text-[2.7rem] font-bold leading-[0.92] tracking-tight text-white sm:text-5xl md:text-7xl xl:text-[5.5rem]">
                             Nitin Kumar
                             <span class="block bg-gradient-to-r from-ember-300 via-white to-tide-300 bg-clip-text text-transparent">
                                 Laravel Developer & Backend Engineer
                             </span>
                         </h1>
-                        <p class="max-w-2xl text-lg leading-8 text-zinc-400 md:text-xl">
+                        <p class="max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg md:text-xl">
                             I build secure, scalable Laravel applications for startups and enterprises, with strong
                             experience in Livewire, REST APIs, real-time systems, admin panels, and backend
                             architecture.
@@ -275,11 +296,11 @@
 
                     <div class="flex flex-col gap-4 sm:flex-row">
                         <a href="https://wa.me/98008840801" target="_blank" rel="noreferrer"
-                            class="inline-flex items-center justify-center rounded-full bg-ember-500 px-6 py-3 mono text-xs uppercase tracking-[0.2em] text-white transition hover:bg-ember-600">
+                            class="inline-flex w-full items-center justify-center rounded-full bg-ember-500 px-6 py-3 mono text-xs uppercase tracking-[0.2em] text-white transition hover:bg-ember-600 sm:w-auto">
                             Hire Me
                         </a>
                         <a href="https://www.linkedin.com/in/nitin-kumar-1a9162132/" target="_blank" rel="noreferrer"
-                            class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 mono text-xs uppercase tracking-[0.2em] text-zinc-100 transition hover:border-tide-400 hover:bg-white/10">
+                            class="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 mono text-xs uppercase tracking-[0.2em] text-zinc-100 transition hover:border-tide-400 hover:bg-white/10 sm:w-auto">
                             LinkedIn Profile
                         </a>
                     </div>
@@ -304,9 +325,9 @@
                 </div>
 
                 <div class="reveal" x-data="{ tab: 'profile' }">
-                    <div class="panel relative overflow-hidden rounded-[2rem] p-0">
-                        <div class="grid min-h-[41rem] grid-cols-[3.75rem_minmax(0,1fr)]">
-                            <div class="border-r border-white/[0.08] bg-[#0b1018] px-2 py-4">
+                    <div class="panel relative overflow-hidden rounded-[1.6rem] p-0 sm:rounded-[2rem]">
+                        <div class="grid min-h-[34rem] grid-cols-1 sm:min-h-[41rem] sm:grid-cols-[3.75rem_minmax(0,1fr)]">
+                            <div class="hidden border-r border-white/[0.08] bg-[#0b1018] px-2 py-4 sm:block">
                                 <div class="flex flex-col items-center gap-4">
                                     <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1b2430] text-white">F</div>
                                     <div class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.04] text-tide-300">S</div>
@@ -316,38 +337,38 @@
                             </div>
 
                             <div class="flex min-w-0 flex-col">
-                                <div class="flex items-center justify-between border-b border-white/[0.08] bg-black/[0.22] px-4 py-3">
+                                <div class="flex items-center justify-between gap-3 border-b border-white/[0.08] bg-black/[0.22] px-3 py-3 sm:px-4">
                                     <div class="flex items-center gap-3">
                                         <div class="flex gap-2">
                                             <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
                                             <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
                                             <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
                                         </div>
-                                        <span class="mono text-xs uppercase tracking-[0.22em] text-zinc-500">visual-studio-code</span>
+                                        <span class="mono text-[10px] uppercase tracking-[0.18em] text-zinc-500 sm:text-xs sm:tracking-[0.22em]">visual-studio-code</span>
                                     </div>
-                                    <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 mono text-[10px] uppercase tracking-[0.2em] text-tide-300">workspace active</span>
+                                    <span class="hidden rounded-full border border-white/10 bg-white/5 px-3 py-1 mono text-[10px] uppercase tracking-[0.2em] text-tide-300 sm:inline-flex">workspace active</span>
                                 </div>
 
-                                <div class="flex flex-wrap gap-1 border-b border-white/[0.08] bg-[#11161f] px-3 pt-3">
+                                <div class="flex flex-wrap gap-1 overflow-x-auto border-b border-white/[0.08] bg-[#11161f] px-2 pt-2 sm:px-3 sm:pt-3">
                                     <button type="button" @click="tab = 'profile'"
                                         :class="tab === 'profile' ? 'border-white/[0.10] bg-[#0f141c] text-white' : 'border-transparent bg-transparent text-zinc-500'"
-                                        class="rounded-t-xl border px-4 py-2 mono text-xs uppercase tracking-[0.18em] transition">
+                                        class="shrink-0 rounded-t-xl border px-3 py-2 mono text-[10px] uppercase tracking-[0.16em] transition sm:px-4 sm:text-xs sm:tracking-[0.18em]">
                                         profile.php
                                     </button>
                                     <button type="button" @click="tab = 'resume'"
                                         :class="tab === 'resume' ? 'border-white/[0.10] bg-[#0f141c] text-white' : 'border-transparent bg-transparent text-zinc-500'"
-                                        class="rounded-t-xl border px-4 py-2 mono text-xs uppercase tracking-[0.18em] transition">
+                                        class="shrink-0 rounded-t-xl border px-3 py-2 mono text-[10px] uppercase tracking-[0.16em] transition sm:px-4 sm:text-xs sm:tracking-[0.18em]">
                                         resume.json
                                     </button>
                                     <button type="button" @click="tab = 'contact'"
                                         :class="tab === 'contact' ? 'border-white/[0.10] bg-[#0f141c] text-white' : 'border-transparent bg-transparent text-zinc-500'"
-                                        class="rounded-t-xl border px-4 py-2 mono text-xs uppercase tracking-[0.18em] transition">
+                                        class="shrink-0 rounded-t-xl border px-3 py-2 mono text-[10px] uppercase tracking-[0.16em] transition sm:px-4 sm:text-xs sm:tracking-[0.18em]">
                                         contact.md
                                     </button>
                                 </div>
 
-                                <div class="grid flex-1 min-h-[33rem] md:grid-cols-[14rem_minmax(0,1fr)]">
-                                    <aside class="border-r border-white/[0.08] bg-[#0c121b] p-4">
+                                <div class="grid flex-1 min-h-[28rem] sm:min-h-[33rem] md:grid-cols-[14rem_minmax(0,1fr)]">
+                                    <aside class="hidden border-r border-white/[0.08] bg-[#0c121b] p-4 md:block">
                                         <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Explorer</div>
                                         <div class="mt-4 space-y-3 mono text-xs text-zinc-300">
                                             <div class="rounded-lg bg-white/[0.04] px-3 py-2">nitin-portfolio</div>
@@ -361,13 +382,13 @@
                                     </aside>
 
                                     <div class="min-w-0 bg-[#0f141c]">
-                                        <div class="border-b border-white/[0.08] px-4 py-3 mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">
+                                        <div class="border-b border-white/[0.08] px-3 py-3 mono text-[9px] uppercase tracking-[0.18em] text-zinc-500 sm:px-4 sm:text-[10px] sm:tracking-[0.22em]">
                                             nitin-portfolio / developer workspace / personal-info
                                         </div>
 
-                                        <div class="p-4 md:p-5">
+                                        <div class="p-3 sm:p-4 md:p-5">
                                             <div x-show="tab === 'profile'" x-transition.opacity>
-                                                <pre class="overflow-x-auto rounded-2xl bg-[#10131a] p-4 mono text-sm"><code class="language-php">return [
+                                                <pre class="overflow-x-auto rounded-2xl bg-[#10131a] p-4 mono text-xs sm:text-sm"><code class="language-php">return [
     'name' => 'Nitin Kumar',
     'role' => 'Laravel Developer & Backend Engineer',
     'location' => 'Noida, Uttar Pradesh, India',
@@ -383,7 +404,7 @@
                                             </div>
 
                                             <div x-cloak x-show="tab === 'resume'" x-transition.opacity>
-                                                <pre class="overflow-x-auto rounded-2xl bg-[#10131a] p-4 mono text-sm text-zinc-200">{
+                                                <pre class="overflow-x-auto rounded-2xl bg-[#10131a] p-4 mono text-xs text-zinc-200 sm:text-sm">{
   "current_role": "Lead Developer & Manager",
   "company": "State Infotech",
   "projects_completed": "120+",
@@ -403,7 +424,7 @@
                                             </div>
 
                                             <div x-cloak x-show="tab === 'contact'" x-transition.opacity>
-                                                <pre class="overflow-x-auto rounded-2xl bg-[#10131a] p-4 mono text-sm text-zinc-200"># Nitin Kumar
+                                                <pre class="overflow-x-auto rounded-2xl bg-[#10131a] p-4 mono text-xs text-zinc-200 sm:text-sm"># Nitin Kumar
 
 - Phone: +91 98088 40801
 - Email: wwwnk9333@gmail.com
@@ -415,14 +436,15 @@
                                     </div>
                                 </div>
 
-                                <div class="flex items-center justify-between bg-[#007acc] px-4 py-2 mono text-[10px] uppercase tracking-[0.22em] text-white">
+                                <div class="flex items-center justify-between gap-3 bg-[#007acc] px-3 py-2 mono text-[9px] uppercase tracking-[0.18em] text-white sm:px-4 sm:text-[10px] sm:tracking-[0.22em]">
                                     <span>Laravel workspace</span>
-                                    <span>Noida, India / available for freelancing</span>
+                                    <span class="hidden sm:inline">Noida, India / available for freelancing</span>
+                                    <span class="sm:hidden">Available</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div id="hero-log" class="border-t border-white/[0.08] bg-[#0d121a] p-4 mono text-sm text-zinc-300">
+                        <div id="hero-log" class="border-t border-white/[0.08] bg-[#0d121a] p-3 mono text-xs text-zinc-300 sm:p-4 sm:text-sm">
                             <div class="terminal-line mb-2">Booting Nitin Kumar developer workspace</div>
                             <div class="terminal-line mb-2">Loading Laravel, Livewire, Docker, and API modules</div>
                             <div class="terminal-line">Status: ready for client projects</div>
@@ -432,32 +454,32 @@
             </div>
         </section>
 
-        <section class="px-6 py-8">
-            <div class="reveal mx-auto max-w-7xl rounded-[2rem] border border-white/[0.08] bg-white/[0.04] p-5 md:p-7">
-                <div class="overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0a0f15]">
-                    <div class="relative h-[15rem] overflow-hidden border-b border-white/[0.08] bg-[linear-gradient(135deg,#f5ede5_0%,#e6e3dc_38%,#e8e2da_100%)]">
+        <section class="px-4 py-6 sm:px-6 sm:py-8">
+            <div class="reveal mx-auto max-w-7xl rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-4 sm:rounded-[2rem] sm:p-5 md:p-7">
+                <div class="overflow-hidden rounded-[1.6rem] border border-white/[0.08] bg-[#0a0f15] sm:rounded-[2rem]">
+                    <div class="relative h-[19rem] overflow-hidden border-b border-white/[0.08] bg-[linear-gradient(135deg,#f5ede5_0%,#e6e3dc_38%,#e8e2da_100%)] sm:h-[15rem]">
                         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.65),transparent_36%),linear-gradient(120deg,rgba(0,0,0,0.02),transparent_55%)]"></div>
-                        <div class="absolute -left-4 top-3 h-24 w-28 rotate-[-12deg] rounded-[1.5rem] border border-black/10 bg-[linear-gradient(145deg,#1b1b1b,#535353)] shadow-[0_20px_60px_rgba(0,0,0,0.22)]"></div>
-                        <div class="absolute left-24 top-0 h-20 w-20 rounded-full border-[10px] border-[#c99a73]/35 bg-[#fbf6ef] shadow-[0_16px_30px_rgba(0,0,0,0.12)]"></div>
-                        <div class="absolute left-10 top-10 rounded-2xl border border-black/10 bg-white/65 px-4 py-2 shadow-[0_12px_30px_rgba(0,0,0,0.08)]">
+                        <div class="absolute -left-4 top-3 hidden h-24 w-28 rotate-[-12deg] rounded-[1.5rem] border border-black/10 bg-[linear-gradient(145deg,#1b1b1b,#535353)] shadow-[0_20px_60px_rgba(0,0,0,0.22)] sm:block"></div>
+                        <div class="absolute left-24 top-0 hidden h-20 w-20 rounded-full border-[10px] border-[#c99a73]/35 bg-[#fbf6ef] shadow-[0_16px_30px_rgba(0,0,0,0.12)] sm:block"></div>
+                        <div class="absolute left-4 top-4 rounded-2xl border border-black/10 bg-white/65 px-3 py-2 shadow-[0_12px_30px_rgba(0,0,0,0.08)] sm:left-10 sm:top-10 sm:px-4">
                             <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Profile snapshot</div>
                             <div class="mt-1 text-sm font-bold text-zinc-800">Nitin Kumar / State Infotech</div>
                         </div>
-                        <div class="absolute right-6 top-7 max-w-[25rem] text-right md:right-10">
-                            <div class="font-signature text-5xl leading-none text-[#9d6546] md:text-6xl">Nitin Kumar</div>
-                            <div class="mt-2 text-lg font-medium text-zinc-700 md:text-2xl">Lead Developer, Manager</div>
-                            <div class="mt-4 flex justify-end">
+                        <div class="absolute inset-x-4 bottom-4 max-w-[15rem] text-left sm:inset-x-auto sm:right-10 sm:top-7 sm:bottom-auto sm:max-w-[25rem] sm:text-right">
+                            <div class="font-signature text-4xl leading-none text-[#9d6546] sm:text-5xl md:text-6xl">Nitin Kumar</div>
+                            <div class="mt-2 text-base font-medium text-zinc-700 sm:text-lg md:text-2xl">Lead Developer, Manager</div>
+                            <div class="mt-4 flex justify-start sm:justify-end">
                                 <a href="https://wa.me/98008840801" target="_blank" rel="noreferrer"
                                     class="rounded-full bg-[#9d6546] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#874f31]">
                                     Contact
                                 </a>
                             </div>
-                            <div class="mt-4 mono text-[11px] text-zinc-600 md:text-xs">+91 98088 40801 | wwwnk9333@gmail.com | stateinfotech.com</div>
+                            <div class="mt-3 mono text-[10px] leading-4 text-zinc-600 sm:mt-4 sm:text-[11px] md:text-xs">+91 98088 40801 | wwwnk9333@gmail.com | stateinfotech.com</div>
                         </div>
                     </div>
 
-                    <div class="relative px-5 pb-6 pt-20 md:px-8">
-                        <div class="absolute left-6 top-[-4.25rem] h-36 w-36 overflow-hidden rounded-full border-[6px] border-coal-900 bg-[#10141b] shadow-[0_25px_70px_rgba(0,0,0,0.45)] md:left-8">
+                    <div class="relative px-4 pb-5 pt-14 sm:px-5 sm:pb-6 sm:pt-20 md:px-8">
+                        <div class="absolute left-4 top-[-3rem] h-24 w-24 overflow-hidden rounded-full border-[5px] border-coal-900 bg-[#10141b] shadow-[0_25px_70px_rgba(0,0,0,0.45)] sm:left-6 sm:top-[-4.25rem] sm:h-36 sm:w-36 sm:border-[6px] md:left-8">
                             <img
                                 src="https://lh3.googleusercontent.com/a/ACg8ocJyEh8KdOYYM_FOxmlD1JYYCvm_ev3kFPM2CorKY53v9MiPOXSe=s400-c"
                                 alt="Portrait of Nitin Kumar"
@@ -466,12 +488,12 @@
                         </div>
 
                         <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
-                            <div class="pt-2 md:pl-40">
+                            <div class="pt-8 sm:pt-2 md:pl-40">
                                 <div class="flex flex-wrap items-center gap-3">
-                                    <h2 class="text-3xl font-bold text-white md:text-4xl">Nitin Kumar</h2>
+                                    <h2 class="text-2xl font-bold text-white sm:text-3xl md:text-4xl">Nitin Kumar</h2>
                                     <span class="rounded-full border border-ember-400/30 bg-ember-500/10 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-ember-300">Lead Developer</span>
                                 </div>
-                                <p class="mt-3 text-lg text-zinc-200 md:text-2xl">Lead Developer | Laravel Expert | Technical Manager</p>
+                                <p class="mt-3 text-base text-zinc-200 sm:text-lg md:text-2xl">Lead Developer | Laravel Expert | Technical Manager</p>
                                 <p class="mt-2 text-zinc-400">Noida, Uttar Pradesh, India</p>
 
                                 <div class="mt-5 flex flex-wrap gap-3">
@@ -485,7 +507,7 @@
                                     </a>
                                 </div>
 
-                                <div class="mt-6 flex flex-wrap gap-5 mono text-xs uppercase tracking-[0.22em] text-zinc-500">
+                                <div class="mt-6 flex flex-wrap gap-3 sm:gap-5 mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 sm:text-xs sm:tracking-[0.22em]">
                                     <span>120+ delivered projects</span>
                                     <span>4+ years experience</span>
                                     <span>Laravel / Livewire / APIs</span>
@@ -519,7 +541,7 @@
                         </p>
                     </div>
 
-                    <div class="grid gap-3 sm:grid-cols-4">
+                    <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
                         <div class="rounded-3xl border border-white/[0.08] bg-black/30 p-4">
                             <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Projects</div>
                             <div class="mt-3 text-3xl font-bold text-white">120+</div>
@@ -566,12 +588,125 @@
             </div>
         </section>
 
-        <section id="projects" class="px-6 py-20">
+        <section id="hire" class="px-4 py-16 sm:px-6 sm:py-20">
             <div class="mx-auto max-w-7xl">
-                <div class="reveal mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div class="reveal mb-8 flex flex-col gap-4 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
+                    <div>
+                        <div class="mono text-xs uppercase tracking-[0.28em] text-zinc-500">Hiring signal</div>
+                        <h2 class="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">Why companies trust Nitin Kumar with Laravel delivery.</h2>
+                    </div>
+                    <p class="max-w-2xl text-zinc-400">
+                        This section is built for founders, hiring teams, and recruiters who need fast clarity on value, services, availability, and fit.
+                    </p>
+                </div>
+
+                <div class="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
+                    <div class="reveal panel rounded-[1.6rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8">
+                        <div class="mono text-xs uppercase tracking-[0.24em] text-zinc-500">Why hire Nitin</div>
+                        <h3 class="mt-3 text-2xl font-bold text-white sm:text-3xl md:text-4xl">Backend ownership, product thinking, and delivery discipline in one profile.</h3>
+                        <p class="mt-4 max-w-3xl text-sm leading-7 text-zinc-400 sm:text-base sm:leading-8">
+                            Nitin Kumar is strongest when a project needs someone who can build the Laravel backend correctly,
+                            keep the product usable for operators, and handle delivery with real engineering ownership.
+                        </p>
+
+                        <div class="mt-8 grid gap-4 md:grid-cols-3">
+                            <div class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5">
+                                <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Ownership</div>
+                                <div class="mt-3 text-xl font-bold text-white">Builds and owns Laravel systems</div>
+                                <p class="mt-3 text-sm leading-7 text-zinc-400">From backend architecture and APIs to admin flows, real-time features, and production-ready modules.</p>
+                            </div>
+                            <div class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5">
+                                <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Execution</div>
+                                <div class="mt-3 text-xl font-bold text-white">Ships usable products, not just code</div>
+                                <p class="mt-3 text-sm leading-7 text-zinc-400">Strong with dashboards, operations tools, SaaS flows, e-commerce backends, and business-facing interfaces.</p>
+                            </div>
+                            <div class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5">
+                                <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Leadership</div>
+                                <div class="mt-3 text-xl font-bold text-white">Comfortable leading delivery quality</div>
+                                <p class="mt-3 text-sm leading-7 text-zinc-400">Can contribute individually or manage developers, CI/CD flow, release quality, and backend-heavy execution.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 rounded-[1.6rem] border border-white/[0.08] bg-[#0a0f15] p-5">
+                            <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Best fit</div>
+                            <div class="mt-4 flex flex-wrap gap-3">
+                                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 mono text-[10px] uppercase tracking-[0.18em] text-zinc-300">Laravel products</span>
+                                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 mono text-[10px] uppercase tracking-[0.18em] text-zinc-300">Admin systems</span>
+                                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 mono text-[10px] uppercase tracking-[0.18em] text-zinc-300">Internal tools</span>
+                                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 mono text-[10px] uppercase tracking-[0.18em] text-zinc-300">E-commerce ops</span>
+                                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 mono text-[10px] uppercase tracking-[0.18em] text-zinc-300">Realtime apps</span>
+                                <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 mono text-[10px] uppercase tracking-[0.18em] text-zinc-300">Workflow automation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="reveal panel rounded-[1.6rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8">
+                            <div class="flex flex-wrap items-start justify-between gap-4">
+                                <div>
+                                    <div class="mono text-xs uppercase tracking-[0.24em] text-zinc-500">Recruiter snapshot</div>
+                                    <h3 class="mt-3 text-2xl font-bold text-white">Fast answers for hiring teams.</h3>
+                                </div>
+                                <span class="rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 mono text-[10px] uppercase tracking-[0.22em] text-emerald-300">Open for work</span>
+                            </div>
+
+                            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-black/20 p-4">
+                                    <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Current role</div>
+                                    <div class="mt-2 text-lg font-bold text-white">Lead Developer & Manager</div>
+                                </div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-black/20 p-4">
+                                    <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Experience</div>
+                                    <div class="mt-2 text-lg font-bold text-white">4+ Years</div>
+                                </div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-black/20 p-4">
+                                    <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Location</div>
+                                    <div class="mt-2 text-lg font-bold text-white">Noida, India</div>
+                                </div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-black/20 p-4">
+                                    <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Engagement</div>
+                                    <div class="mt-2 text-lg font-bold text-white">Freelance / Contract</div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 flex flex-wrap gap-3">
+                                <a href="nitin-kumar-hire-snapshot.txt" download
+                                    class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 mono text-xs uppercase tracking-[0.22em] text-zinc-100 transition hover:border-tide-400 hover:bg-white/10">
+                                    Download Hire Snapshot
+                                </a>
+                                <a href="https://wa.me/98008840801" target="_blank" rel="noreferrer"
+                                    class="inline-flex items-center justify-center rounded-full bg-ember-500 px-5 py-3 mono text-xs uppercase tracking-[0.22em] text-white transition hover:bg-ember-600">
+                                    WhatsApp Nitin
+                                </a>
+                                <a href="mailto:wwwnk9333@gmail.com"
+                                    class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 mono text-xs uppercase tracking-[0.22em] text-zinc-100 transition hover:border-ember-400 hover:bg-ember-500/10">
+                                    Email
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="reveal panel rounded-[1.6rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8">
+                            <div class="mono text-xs uppercase tracking-[0.24em] text-zinc-500">Services</div>
+                            <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-white/[0.04] p-4 text-sm leading-7 text-zinc-300">Laravel application development</div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-white/[0.04] p-4 text-sm leading-7 text-zinc-300">Livewire dashboards and admin panels</div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-white/[0.04] p-4 text-sm leading-7 text-zinc-300">REST APIs and backend integrations</div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-white/[0.04] p-4 text-sm leading-7 text-zinc-300">Existing Laravel project takeover</div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-white/[0.04] p-4 text-sm leading-7 text-zinc-300">Realtime chat and activity systems</div>
+                                <div class="rounded-[1.3rem] border border-white/[0.08] bg-white/[0.04] p-4 text-sm leading-7 text-zinc-300">Performance optimization and bug fixing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="px-4 py-16 sm:px-6 sm:py-20">
+            <div class="mx-auto max-w-7xl">
+                <div class="reveal mb-8 flex flex-col gap-4 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
                         <div>
                             <div class="mono text-xs uppercase tracking-[0.28em] text-zinc-500">Case files</div>
-                            <h2 class="mt-3 text-4xl font-bold tracking-tight text-white">Recent projects from Nitin Kumar.</h2>
+                            <h2 class="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">Recent projects from Nitin Kumar.</h2>
                         </div>
                         <p class="max-w-2xl text-zinc-400">
                             A rotating showcase of recent product builds, admin systems, automation tools, and secure internal platforms.
@@ -609,14 +744,14 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M9 5l7 7-7 7"></path>
                                 </svg>
                             </button>
-                            <div class="mono text-xs uppercase tracking-[0.22em] text-zinc-500">autoplay every 6s</div>
+                            <div class="hidden mono text-xs uppercase tracking-[0.22em] text-zinc-500 sm:block">autoplay every 6s</div>
                         </div>
                     </div>
 
-                    <div class="panel self-start overflow-hidden rounded-[2rem]">
+                    <div class="panel self-start overflow-hidden rounded-[1.6rem] sm:rounded-[2rem]">
                         <template x-if="items[active]">
                             <article x-transition.opacity.duration.500ms class="overflow-hidden">
-                                <div class="flex items-center justify-between border-b border-white/[0.08] bg-black/[0.22] px-6 py-4 md:px-8">
+                                <div class="flex items-center justify-between border-b border-white/[0.08] bg-black/[0.22] px-4 py-3 sm:px-6 sm:py-4 md:px-8">
                                     <div class="flex items-center gap-3">
                                         <div class="flex gap-2">
                                             <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
@@ -632,11 +767,11 @@
                                 </div>
 
                                 <div class="grid gap-0 xl:grid-cols-[minmax(0,1fr)_21rem]">
-                                    <div class="p-6 md:p-8">
+                                    <div class="p-4 sm:p-6 md:p-8">
                                         <div class="flex flex-wrap items-start justify-between gap-5">
                                             <div class="max-w-3xl">
-                                                <h3 class="text-3xl font-bold text-white md:text-5xl" x-text="items[active].title"></h3>
-                                                <p class="mt-5 text-base leading-8 text-zinc-400 md:text-lg" x-text="items[active].summary"></p>
+                                                <h3 class="text-2xl font-bold text-white sm:text-3xl md:text-5xl" x-text="items[active].title"></h3>
+                                                <p class="mt-4 text-sm leading-7 text-zinc-400 sm:mt-5 sm:text-base sm:leading-8 md:text-lg" x-text="items[active].summary"></p>
                                             </div>
                                             <div class="rounded-[1.25rem] border border-white/[0.08] bg-white/[0.04] px-4 py-3">
                                                 <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">deployment pulse</div>
@@ -654,7 +789,7 @@
                                             <div class="border-b border-white/[0.08] px-5 py-4">
                                                 <div class="mono text-xs uppercase tracking-[0.26em] text-zinc-500">Project preview</div>
                                             </div>
-                                            <img :src="items[active].image" :alt="items[active].title + ' screenshot'" class="h-[22rem] w-full object-cover object-top">
+                                            <img :src="items[active].image" :alt="items[active].title + ' screenshot'" class="h-56 w-full object-cover object-top sm:h-72 lg:h-[22rem]">
                                         </div>
 
                                         <div class="mt-8 grid gap-4 md:grid-cols-3">
@@ -666,15 +801,30 @@
                                             </template>
                                         </div>
 
+                                        <div class="mt-8 grid gap-4 lg:grid-cols-3">
+                                            <div class="rounded-[1.5rem] border border-white/[0.08] bg-white/[0.04] p-5">
+                                                <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Problem</div>
+                                                <p class="mt-3 text-sm leading-7 text-zinc-300" x-text="items[active].problem"></p>
+                                            </div>
+                                            <div class="rounded-[1.5rem] border border-white/[0.08] bg-white/[0.04] p-5">
+                                                <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Role</div>
+                                                <p class="mt-3 text-sm leading-7 text-zinc-300" x-text="items[active].role"></p>
+                                            </div>
+                                            <div class="rounded-[1.5rem] border border-white/[0.08] bg-white/[0.04] p-5">
+                                                <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Outcome</div>
+                                                <p class="mt-3 text-sm leading-7 text-zinc-300" x-text="items[active].outcome"></p>
+                                            </div>
+                                        </div>
+
                                         <div class="mt-8 rounded-[1.6rem] border border-white/[0.08] bg-[#091019]">
                                             <div class="border-b border-white/[0.08] px-5 py-4">
                                                 <div class="mono text-xs uppercase tracking-[0.26em] text-zinc-500">Architecture excerpt</div>
                                             </div>
-                                            <pre class="max-h-[20rem] overflow-auto p-5 mono text-sm leading-7"><code class="language-php" x-text="items[active].code"></code></pre>
+                                            <pre class="max-h-[20rem] overflow-auto p-4 mono text-xs leading-6 sm:p-5 sm:text-sm sm:leading-7"><code class="language-php" x-text="items[active].code"></code></pre>
                                         </div>
                                     </div>
 
-                                    <div class="border-t border-white/[0.08] bg-black/[0.18] p-6 md:p-8 xl:border-l xl:border-t-0">
+                                    <div class="border-t border-white/[0.08] bg-black/[0.18] p-5 sm:p-6 md:p-8 xl:border-l xl:border-t-0">
                                         <div class="rounded-[1.5rem] border border-white/[0.08] bg-white/[0.04] p-5">
                                             <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Mission note</div>
                                             <div class="mt-3 text-xl font-bold leading-8 text-white" x-text="items[active].note"></div>
@@ -711,17 +861,17 @@
         </section>
 
         <!-- Timeline Section -->
-        <section id="timeline" class="relative px-6 py-32">
+        <section id="timeline" class="relative px-4 py-20 sm:px-6 sm:py-28 md:py-32">
             <div class="mx-auto max-w-6xl">
-                <h2 class="mb-16 flex items-center gap-5 text-3xl font-bold text-white md:text-4xl">
+                <h2 class="mb-12 flex items-center gap-4 text-2xl font-bold text-white sm:mb-16 sm:gap-5 sm:text-3xl md:text-4xl">
                     <span class="h-px w-10 bg-ember-500"></span>
                     Career Timeline
                 </h2>
 
-                <div class="relative pl-10 md:pl-0">
+                <div class="relative pl-8 sm:pl-10 md:pl-0">
                     <div class="absolute left-[9px] top-3 bottom-3 w-px bg-white/10 md:left-6"></div>
 
-                    <div class="space-y-14">
+                    <div class="space-y-10 sm:space-y-14">
                         <article class="group relative md:grid md:grid-cols-[4rem_12rem_minmax(0,1fr)] md:gap-8 md:items-start">
                             <div class="absolute left-0 top-5 flex h-5 w-5 items-center justify-center md:left-[14px]">
                                 <span class="h-3 w-3 rounded-full border-2 border-ember-500 bg-coal-900 transition-transform duration-300 group-hover:scale-125"></span>
@@ -731,10 +881,10 @@
                                 <div class="mono text-2xl font-semibold text-ember-500">2024</div>
                                 <div class="text-sm text-zinc-500 md:text-[0.95rem]">Noida, India</div>
                             </div>
-                            <div class="ml-8 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-7 py-8 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 md:ml-0">
+                            <div class="ml-6 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-5 py-6 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 sm:ml-8 sm:px-7 sm:py-8 md:ml-0">
                                 <div class="mb-3 mono text-xs uppercase tracking-[0.22em] text-ember-400 md:hidden">Apr 2024 - Present</div>
-                                <h3 class="text-3xl font-bold text-white">Lead Developer & Manager</h3>
-                                <p class="mt-5 max-w-2xl text-lg leading-9 text-zinc-400">
+                                <h3 class="text-2xl font-bold text-white sm:text-3xl">Lead Developer & Manager</h3>
+                                <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-5 sm:text-lg sm:leading-9">
                                     Leading developers, managing the full project lifecycle, implementing CI/CD, and
                                     improving delivery quality at State Infotech.
                                 </p>
@@ -755,10 +905,10 @@
                                 <div class="mono text-2xl font-semibold text-ember-500">2024</div>
                                 <div class="text-sm text-zinc-500 md:text-[0.95rem]">Delhi, India</div>
                             </div>
-                            <div class="ml-8 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-7 py-8 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 md:ml-0">
+                            <div class="ml-6 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-5 py-6 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 sm:ml-8 sm:px-7 sm:py-8 md:ml-0">
                                 <div class="mb-3 mono text-xs uppercase tracking-[0.22em] text-ember-400 md:hidden">Jan 2024 - Apr 2024</div>
-                                <h3 class="text-3xl font-bold text-white">Laravel Developer</h3>
-                                <p class="mt-5 max-w-2xl text-lg leading-9 text-zinc-400">
+                                <h3 class="text-2xl font-bold text-white sm:text-3xl">Laravel Developer</h3>
+                                <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-5 sm:text-lg sm:leading-9">
                                     Developed Laravel applications, integrated REST APIs, deployed on Vercel, and
                                     improved maintainability at ByteQuest Softwares.
                                 </p>
@@ -779,10 +929,10 @@
                                 <div class="mono text-2xl font-semibold text-ember-500">2022</div>
                                 <div class="text-sm text-zinc-500 md:text-[0.95rem]">Delhi, India</div>
                             </div>
-                            <div class="ml-8 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-7 py-8 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 md:ml-0">
+                            <div class="ml-6 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-5 py-6 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 sm:ml-8 sm:px-7 sm:py-8 md:ml-0">
                                 <div class="mb-3 mono text-xs uppercase tracking-[0.22em] text-ember-400 md:hidden">Dec 2022 - Jan 2024</div>
-                                <h3 class="text-3xl font-bold text-white">Senior Laravel Developer</h3>
-                                <p class="mt-5 max-w-2xl text-lg leading-9 text-zinc-400">
+                                <h3 class="text-2xl font-bold text-white sm:text-3xl">Senior Laravel Developer</h3>
+                                <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-5 sm:text-lg sm:leading-9">
                                     Architected enterprise Laravel applications, used Docker for scalable systems, and
                                     improved delivery quality across teams at Rising Bharat Technology.
                                 </p>
@@ -803,10 +953,10 @@
                                 <div class="mono text-2xl font-semibold text-ember-500">2022</div>
                                 <div class="text-sm text-zinc-500 md:text-[0.95rem]">Noida, India</div>
                             </div>
-                            <div class="ml-8 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-7 py-8 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 md:ml-0">
+                            <div class="ml-6 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-5 py-6 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 sm:ml-8 sm:px-7 sm:py-8 md:ml-0">
                                 <div class="mb-3 mono text-xs uppercase tracking-[0.22em] text-ember-400 md:hidden">Feb 2022 - Dec 2022</div>
-                                <h3 class="text-3xl font-bold text-white">PHP Developer</h3>
-                                <p class="mt-5 max-w-2xl text-lg leading-9 text-zinc-400">
+                                <h3 class="text-2xl font-bold text-white sm:text-3xl">PHP Developer</h3>
+                                <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-5 sm:text-lg sm:leading-9">
                                     Built secure PHP applications and APIs, managed MySQL performance, and integrated
                                     third-party payment gateways at AbyM Technology.
                                 </p>
@@ -827,10 +977,10 @@
                                 <div class="mono text-2xl font-semibold text-ember-500">2021</div>
                                 <div class="text-sm text-zinc-500 md:text-[0.95rem]">Agra, India</div>
                             </div>
-                            <div class="ml-8 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-7 py-8 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 md:ml-0">
+                            <div class="ml-6 rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] px-5 py-6 shadow-[0_25px_70px_rgba(0,0,0,0.35)] transition duration-300 hover:border-ember-500/40 sm:ml-8 sm:px-7 sm:py-8 md:ml-0">
                                 <div class="mb-3 mono text-xs uppercase tracking-[0.22em] text-ember-400 md:hidden">Sep 2021 - Feb 2022</div>
-                                <h3 class="text-3xl font-bold text-white">Internship Trainee</h3>
-                                <p class="mt-5 max-w-2xl text-lg leading-9 text-zinc-400">
+                                <h3 class="text-2xl font-bold text-white sm:text-3xl">Internship Trainee</h3>
+                                <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-400 sm:mt-5 sm:text-lg sm:leading-9">
                                     Assisted in Laravel-based web development and built a strong foundation in MVC,
                                     debugging, and development best practices.
                                 </p>
@@ -846,41 +996,41 @@
             </div>
         </section>
 
-        <section id="skills" class="px-6 py-20">
+        <section id="skills" class="px-4 py-16 sm:px-6 sm:py-20">
             <div class="mx-auto max-w-7xl">
-                <div class="reveal mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+                <div class="reveal mb-8 flex flex-col gap-4 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
                     <div>
                         <div class="mono text-xs uppercase tracking-[0.28em] text-zinc-500">Stack lattice</div>
-                        <h2 class="mt-3 text-4xl font-bold tracking-tight text-white">Laravel, Livewire, APIs, and scalable backend work.</h2>
+                        <h2 class="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">Laravel, Livewire, APIs, and scalable backend work.</h2>
                     </div>
                     <p class="max-w-2xl text-zinc-400">This section now reflects the real public stack from your portfolio instead of generic placeholder technologies.</p>
                 </div>
 
                 <div class="grid gap-6 xl:grid-cols-[0.5fr_0.5fr]">
-                    <div class="reveal panel rounded-[2rem] p-6 md:p-8">
+                    <div class="reveal panel rounded-[1.6rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8">
                         <div class="mono text-xs uppercase tracking-[0.24em] text-zinc-500">Orbit map</div>
                         <h3 class="mt-3 text-2xl font-bold text-white">Your Laravel ecosystem at a glance.</h3>
-                        <div class="architecture-grid relative mt-8 h-[24rem] rounded-[1.75rem] border border-white/[0.08] bg-[#0a0f15]">
+                        <div class="architecture-grid relative mt-8 h-[18rem] rounded-[1.5rem] border border-white/[0.08] bg-[#0a0f15] sm:h-[24rem] sm:rounded-[1.75rem]">
                             <div class="node-line" style="left: 20%; top: 38%; width: 28%;"></div>
                             <div class="node-line" style="left: 47%; top: 38%; width: 23%;"></div>
                             <div class="node-line" style="left: 30%; top: 67%; width: 24%; transform: rotate(-20deg);"></div>
-                            <div class="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-ember-400/40 bg-ember-500/[0.12] text-center">
+                            <div class="absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-ember-400/40 bg-ember-500/[0.12] text-center sm:h-24 sm:w-24">
                                 <div>
                                     <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Core</div>
                                     <div class="mt-1 text-sm font-bold text-white">Laravel</div>
                                 </div>
                             </div>
-                            <div class="absolute left-[12%] top-[20%] rounded-full border border-white/[0.08] bg-black/[0.45] px-4 py-2 mono text-xs text-zinc-200">PHP</div>
-                            <div class="absolute right-[10%] top-[18%] rounded-full border border-white/[0.08] bg-black/[0.45] px-4 py-2 mono text-xs text-zinc-200">Livewire</div>
-                            <div class="absolute right-[16%] bottom-[16%] rounded-full border border-white/[0.08] bg-black/[0.45] px-4 py-2 mono text-xs text-zinc-200">Docker</div>
-                            <div class="absolute left-[14%] bottom-[18%] rounded-full border border-white/[0.08] bg-black/[0.45] px-4 py-2 mono text-xs text-zinc-200">MySQL</div>
-                            <div class="absolute left-[36%] top-[8%] rounded-full border border-white/[0.08] bg-black/[0.45] px-4 py-2 mono text-xs text-zinc-200">Vercel</div>
-                            <div class="absolute right-[34%] bottom-[8%] rounded-full border border-white/[0.08] bg-black/[0.45] px-4 py-2 mono text-xs text-zinc-200">Realtime</div>
+                            <div class="absolute left-[10%] top-[19%] rounded-full border border-white/[0.08] bg-black/[0.45] px-3 py-1.5 mono text-[10px] text-zinc-200 sm:left-[12%] sm:px-4 sm:py-2 sm:text-xs">PHP</div>
+                            <div class="absolute right-[7%] top-[18%] rounded-full border border-white/[0.08] bg-black/[0.45] px-3 py-1.5 mono text-[10px] text-zinc-200 sm:right-[10%] sm:px-4 sm:py-2 sm:text-xs">Livewire</div>
+                            <div class="absolute right-[11%] bottom-[16%] rounded-full border border-white/[0.08] bg-black/[0.45] px-3 py-1.5 mono text-[10px] text-zinc-200 sm:right-[16%] sm:px-4 sm:py-2 sm:text-xs">Docker</div>
+                            <div class="absolute left-[9%] bottom-[18%] rounded-full border border-white/[0.08] bg-black/[0.45] px-3 py-1.5 mono text-[10px] text-zinc-200 sm:left-[14%] sm:px-4 sm:py-2 sm:text-xs">MySQL</div>
+                            <div class="absolute left-[31%] top-[8%] rounded-full border border-white/[0.08] bg-black/[0.45] px-3 py-1.5 mono text-[10px] text-zinc-200 sm:left-[36%] sm:px-4 sm:py-2 sm:text-xs">Vercel</div>
+                            <div class="absolute right-[28%] bottom-[8%] rounded-full border border-white/[0.08] bg-black/[0.45] px-3 py-1.5 mono text-[10px] text-zinc-200 sm:right-[34%] sm:px-4 sm:py-2 sm:text-xs">Realtime</div>
                         </div>
                     </div>
 
                     <div class="space-y-6">
-                        <div class="reveal panel rounded-[2rem] p-6 md:p-8">
+                        <div class="reveal panel rounded-[1.6rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8">
                             <div class="mono text-xs uppercase tracking-[0.24em] text-zinc-500">Capability matrix</div>
                             <div class="mt-6 grid gap-4">
                                 <div class="rounded-[1.5rem] border border-white/[0.08] bg-white/[0.04] p-5">
@@ -902,7 +1052,7 @@
                             </div>
                         </div>
 
-                        <div class="reveal panel rounded-[2rem] p-6 md:p-8" x-data="{ vault: 'eloquent' }">
+                        <div class="reveal panel rounded-[1.6rem] p-5 sm:rounded-[2rem] sm:p-6 md:p-8" x-data="{ vault: 'eloquent' }">
                             <div class="flex flex-wrap gap-2">
                                 <button type="button" @click="vault = 'eloquent'"
                                     :class="vault === 'eloquent' ? 'border-ember-400 bg-ember-500/10 text-white' : 'border-white/10 bg-white/5 text-zinc-400'"
@@ -954,20 +1104,20 @@
             </div>
         </section>
 
-        <section id="agent" class="px-6 py-20">
+        <section id="agent" class="px-4 py-16 sm:px-6 sm:py-20">
             <div class="mx-auto max-w-7xl" x-data="resumeAgent()" x-init="init()" @keydown.escape.window="closeWindow()">
-                <div class="reveal panel rounded-[2.4rem] p-6 md:p-8 xl:p-10">
+                <div class="reveal panel rounded-[2rem] p-5 sm:rounded-[2.4rem] sm:p-6 md:p-8 xl:p-10">
                     <div class="grid gap-8 xl:grid-cols-[0.9fr_1.1fr] xl:items-center">
                         <div>
                             <div class="mono text-xs uppercase tracking-[0.28em] text-zinc-500">Resume agent</div>
-                            <h2 class="mt-3 text-4xl font-bold tracking-tight text-white">Ask about Nitin Kumar.</h2>
+                            <h2 class="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">Ask about Nitin Kumar.</h2>
                             <p class="mt-4 max-w-2xl text-base leading-7 text-zinc-400">
-                                Ask about current role, experience, skills, projects, education, location, and contact details.
+                                Ask about current role, services, experience, projects, hiring fit, education, location, and contact details.
                             </p>
 
                             <div class="mt-6 flex flex-wrap gap-3">
                                 <button type="button" @click="openWindow()"
-                                    class="inline-flex items-center justify-center rounded-full bg-ember-500 px-6 py-3 mono text-xs uppercase tracking-[0.22em] text-white transition hover:bg-ember-600">
+                                    class="inline-flex w-full items-center justify-center rounded-full bg-ember-500 px-6 py-3 mono text-xs uppercase tracking-[0.22em] text-white transition hover:bg-ember-600 sm:w-auto">
                                     Open Resume Agent
                                 </button>
                                 <span class="rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-3 mono text-[10px] uppercase tracking-[0.22em] text-emerald-300">experience</span>
@@ -987,7 +1137,7 @@
                             </div>
                         </div>
 
-                        <div class="rounded-[2rem] border border-white/[0.08] bg-[#091019] p-5 md:p-6">
+                        <div class="rounded-[1.6rem] border border-white/[0.08] bg-[#091019] p-4 sm:rounded-[2rem] sm:p-5 md:p-6">
                             <div class="flex items-center justify-between border-b border-white/[0.08] pb-4">
                                 <div class="flex items-center gap-3">
                                     <div class="flex gap-2">
@@ -1006,19 +1156,18 @@
                             <div class="mt-5 space-y-4">
                                 <div class="max-w-[82%] rounded-[1.4rem] rounded-bl-md border border-white/[0.08] bg-white/[0.04] p-4">
                                     <div class="mb-2 mono text-[10px] uppercase tracking-[0.22em] text-tide-300">Resume Agent</div>
-                                    <p class="text-sm leading-7 text-zinc-200">Ask about current role, experience, skills, projects, contact, education, or location.</p>
+                                    <p class="text-sm leading-7 text-zinc-200">Ask about current role, services, hiring fit, projects, contact, education, or location.</p>
                                 </div>
                                 <div class="ml-auto max-w-[72%] rounded-[1.4rem] rounded-br-md border border-ember-400/30 bg-ember-500/10 p-4">
                                     <div class="mb-2 mono text-[10px] uppercase tracking-[0.22em] text-ember-300">Visitor</div>
-                                    <p class="text-sm leading-7 text-zinc-100">What is Nitin's current role?</p>
+                                    <p class="text-sm leading-7 text-zinc-100">Why should a company hire Nitin?</p>
                                 </div>
                                 <div class="max-w-[82%] rounded-[1.4rem] rounded-bl-md border border-white/[0.08] bg-white/[0.04] p-4">
                                     <div class="mb-2 mono text-[10px] uppercase tracking-[0.22em] text-tide-300">Resume Agent</div>
-                                    <p class="whitespace-pre-line text-sm leading-7 text-zinc-200">Current Role
-- Role: Lead Developer &amp; Manager
-- Company: State Infotech
-- Period: Apr 2024 - Present
-- Location: Noida, India</p>
+                                    <p class="whitespace-pre-line text-sm leading-7 text-zinc-200">Why Hire Nitin
+- Strong in Laravel backend architecture, Livewire dashboards, REST APIs, and real-time application flows.
+- Comfortable owning full project delivery from planning to deployment.
+- Can work as an individual contributor or lead developers, delivery quality, and CI/CD workflows.</p>
                                 </div>
                             </div>
                         </div>
@@ -1058,7 +1207,7 @@
                                     <div class="flex items-start justify-between gap-3">
                                         <div>
                                             <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Quick context</div>
-                                            <p class="mt-2 text-[13px] leading-5 text-zinc-300 sm:text-sm sm:leading-6">Ask about Nitin Kumar's work, projects, skills, experience, or contact details.</p>
+                                            <p class="mt-2 text-[13px] leading-5 text-zinc-300 sm:text-sm sm:leading-6">Ask about Nitin Kumar's work, projects, services, hiring fit, experience, or contact details.</p>
                                         </div>
                                         <span class="hidden rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-emerald-300 sm:inline-flex">online</span>
                                     </div>
@@ -1136,14 +1285,14 @@
             </div>
         </section>
 
-        <section id="contact" class="px-6 py-20">
+        <section id="contact" class="px-4 py-16 sm:px-6 sm:py-20">
             <div class="mx-auto max-w-7xl">
-                <div class="reveal panel rounded-[2.4rem] p-6 md:p-8 xl:p-10">
+                <div class="reveal panel rounded-[2rem] p-5 sm:rounded-[2.4rem] sm:p-6 md:p-8 xl:p-10">
                     <div class="grid gap-8 xl:grid-cols-[0.44fr_0.56fr]">
                         <div class="space-y-6">
                             <div>
                                 <div class="mono text-xs uppercase tracking-[0.28em] text-zinc-500">Open channel</div>
-                                <h2 class="mt-3 text-4xl font-bold tracking-tight text-white">Available for Laravel development, real-time apps, and custom software builds.</h2>
+                                <h2 class="mt-3 text-3xl font-bold tracking-tight text-white md:text-4xl">Available for Laravel development, real-time apps, and custom software builds.</h2>
                             </div>
                             <p class="max-w-xl text-base leading-7 text-zinc-400">
                                 Nitin Kumar is based in Noida, Uttar Pradesh, India and available for freelancing,
@@ -1152,15 +1301,15 @@
                             <div class="grid gap-4 sm:grid-cols-2">
                                 <a href="tel:+919808840801" class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5 transition hover:border-ember-400/40 hover:bg-white/[0.06]">
                                     <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Phone</div>
-                                    <div class="mt-3 text-2xl font-bold text-white">+91 98088 40801</div>
+                                    <div class="mt-3 text-xl font-bold text-white sm:text-2xl">+91 98088 40801</div>
                                 </a>
                                 <a href="mailto:wwwnk9333@gmail.com" class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5 transition hover:border-ember-400/40 hover:bg-white/[0.06]">
                                     <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Email</div>
-                                    <div class="mt-3 text-2xl font-bold text-white">wwwnk9333@gmail.com</div>
+                                    <div class="mt-3 break-all text-lg font-bold text-white sm:text-2xl">wwwnk9333@gmail.com</div>
                                 </a>
                                 <div class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5">
                                     <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Location</div>
-                                    <div class="mt-3 text-2xl font-bold text-white">Noida</div>
+                                    <div class="mt-3 text-xl font-bold text-white sm:text-2xl">Noida</div>
                                     <div class="mt-2 text-sm text-zinc-500">Uttar Pradesh, India</div>
                                 </div>
                                 <a href="https://wa.me/98008840801" target="_blank" rel="noreferrer" class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5 transition hover:border-ember-400/40 hover:bg-white/[0.06]">
@@ -1187,7 +1336,7 @@
             </div>
         </section>
     </main>
-    <footer class="relative z-10 px-6 pb-10 pt-2">
+    <footer class="relative z-10 px-4 pb-10 pt-2 sm:px-6">
         <div class="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/5 pt-6 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
             <div>Nitin Kumar / Laravel Developer & Backend Engineer / Noida, India</div>
             <div class="mono">v2.0.0</div>
@@ -1208,6 +1357,27 @@
 - Builds secure, scalable Laravel applications for startups and enterprises.
 - Specializes in Laravel, Livewire, REST APIs, real-time systems, admin panels, SaaS apps, and backend-heavy product architecture.
 - Comfortable leading developers, managing delivery quality, and implementing CI/CD workflows.
+
+## Why Hire Nitin
+- Strong in Laravel backend architecture, Livewire dashboards, REST APIs, and real-time application flows.
+- Comfortable owning full project delivery from planning to deployment and post-launch improvements.
+- Can work as an individual contributor or lead developers, delivery quality, and CI/CD workflows.
+- Builds admin systems, internal tools, SaaS modules, e-commerce dashboards, automation workflows, and backend-heavy products.
+
+## Services
+- Laravel application development
+- Livewire dashboard and admin panel development
+- REST API development and backend integrations
+- Existing Laravel project takeover and optimization
+- Real-time chat, notification, and activity systems
+- Bug fixing, performance optimization, and database tuning
+
+## Hiring Snapshot
+- Hiring Fit: Backend-heavy Laravel products, internal tools, admin systems, e-commerce operations, and workflow automation.
+- Engagement: Freelance, contract delivery, project-based builds, and ongoing development support.
+- Current Ownership: Lead Developer & Manager at State Infotech.
+- Fastest Contact: WhatsApp or email.
+- Download Profile: nitin-kumar-hire-snapshot.txt
 
 ## Contact
 - Phone: +91 98088 40801
@@ -1256,6 +1426,8 @@
 
 ## Suggested Questions
 - What is Nitin's current role?
+- Why should a company hire Nitin?
+- What services does Nitin offer?
 - How many years of experience does Nitin have?
 - Which technologies does Nitin use?
 - What are Nitin's recent projects?
@@ -1329,6 +1501,9 @@
                         state: "live",
                         image: "projects/inventory_management.png",
                         summary: "Inventory analytics dashboard for suppliers, raw material, purchase orders, GRN flow, and stock operations.",
+                        problem: "Stock, supplier, GRN, and purchase workflows need to stay visible for operations teams without switching across disconnected tools.",
+                        role: "Built the Laravel admin workflow, inventory data structure, and operator-friendly control screens for daily stock movement.",
+                        outcome: "Centralized inventory operations, improved stock visibility, and made purchasing activity easier to review and act on.",
                         stack: ["Laravel", "Admin Panel", "Operations"],
                         pulse: "12+ modules",
                         metrics: [
@@ -1355,6 +1530,9 @@
                         state: "ai",
                         image: "projects/ayurved_ai_automation.png",
                         summary: "AI-assisted workflow interface with recent chats, intent execution, assistant readiness, and activity insights.",
+                        problem: "AI workflow products need chat, execution, and system status in one usable operator view instead of isolated panels.",
+                        role: "Designed the Laravel interface structure, conversation flow, and execution-first workspace for the automation experience.",
+                        outcome: "Made automation activity easier to monitor, review, and act on from a single operational console.",
                         stack: ["Laravel", "AI Workflow", "Realtime UI"],
                         pulse: "AI ready",
                         metrics: [
@@ -1381,6 +1559,9 @@
                         state: "online",
                         image: "projects/ayurved_ecom.png",
                         summary: "Commerce and operations dashboard covering patient activity, order volume, growth charts, and store management flows.",
+                        problem: "Commerce teams need orders, patient activity, growth data, and store actions in one backend instead of fragmented dashboards.",
+                        role: "Built the admin reporting experience, commerce modules, and summary views for day-to-day operations.",
+                        outcome: "Improved visibility into order flow and growth performance while keeping operational actions close to the data.",
                         stack: ["Laravel", "Commerce", "Dashboard"],
                         pulse: "16K+ orders",
                         metrics: [
@@ -1407,6 +1588,9 @@
                         state: "mail",
                         image: "projects/fully_functional_email.png",
                         summary: "Mailbox interface with compose, inbox navigation, labels, filters, settings, and preview-focused email workflows.",
+                        problem: "Email products fail when navigation, settings, and message handling feel scattered or unfamiliar to users.",
+                        role: "Created the mailbox structure, settings-heavy product UI, and clean thread navigation model.",
+                        outcome: "Delivered a more complete email product experience with clearer inbox control and cleaner settings workflows.",
                         stack: ["Laravel", "Mail UI", "Product UX"],
                         pulse: "Advanced mode",
                         metrics: [
@@ -1433,6 +1617,9 @@
                         state: "secure",
                         image: "projects/ip_area_based_access_system.png",
                         summary: "Security dashboard for IP rules, area assignment, access logic, and controlled agent-level monitoring.",
+                        problem: "Security teams need to understand IP policy, blocked traffic, and assigned areas without digging through raw configuration.",
+                        role: "Built the Laravel access-control dashboard, rule views, monitoring tables, and operator review flow.",
+                        outcome: "Made internal security policy easier to audit, review, and manage across agents and area-based rules.",
                         stack: ["Laravel", "Security", "Access Control"],
                         pulse: "25 IPs",
                         metrics: [
@@ -1506,6 +1693,8 @@
                 windowOpen: false,
                 defaultSuggestions: [
                     "What is Nitin's current role?",
+                    "Why should a company hire Nitin?",
+                    "What services does Nitin offer?",
                     "How many years of experience does Nitin have?",
                     "Which technologies does Nitin use?",
                     "What are Nitin's recent projects?",
@@ -1554,7 +1743,7 @@
                     return fromFile.length ? fromFile : this.defaultSuggestions;
                 },
                 buildWelcome() {
-                    return "Ask about Nitin Kumar's current role, experience, skills, projects, education, location, or contact details.";
+                    return "Ask about Nitin Kumar's current role, services, experience, projects, hiring fit, education, location, or contact details.";
                 },
                 scrollThread() {
                     if (this.$refs.thread) this.$refs.thread.scrollTop = this.$refs.thread.scrollHeight;
@@ -1643,9 +1832,18 @@
 
                     if (this.matchAny(normalized, ["experience", "role", "company", "career"])) {
                         return [
+                            "Why should a company hire Nitin?",
                             "Which technologies does Nitin use?",
                             "What are Nitin's recent projects?",
                             "How can I contact Nitin?"
+                        ];
+                    }
+
+                    if (this.matchAny(normalized, ["hire", "services", "available", "freelance", "contract"])) {
+                        return [
+                            "How can I contact Nitin?",
+                            "What are Nitin's recent projects?",
+                            "Which technologies does Nitin use?"
                         ];
                     }
 
@@ -1660,6 +1858,14 @@
 
                     if (this.matchAny(normalized, ["who are you", "summary", "introduce", "profile"])) {
                         return this.composeReply("Profile", this.linesFor(["Identity", "Summary"]), 8);
+                    }
+
+                    if (this.matchAny(normalized, ["why hire", "hire nitin", "should hire", "strength", "strengths", "value", "fit"])) {
+                        return this.composeReply("Why Hire Nitin", this.linesFor(["Why Hire Nitin", "Summary", "Hiring Snapshot"]), 9);
+                    }
+
+                    if (this.matchAny(normalized, ["service", "services", "offer", "offering", "can build", "can help"])) {
+                        return this.composeReply("Services", this.linesFor(["Services", "Hiring Snapshot"]), 9);
                     }
 
                     if (this.matchAny(normalized, ["current role", "current company", "working", "present", "manager", "state infotech", "role"])) {
@@ -1678,7 +1884,7 @@
                         return this.composeReply("Projects", this.linesFor(["Projects"]), 10);
                     }
 
-                    if (this.matchAny(normalized, ["contact", "email", "phone", "reach", "hire", "linkedin", "whatsapp"])) {
+                    if (this.matchAny(normalized, ["contact", "email", "phone", "reach", "linkedin", "whatsapp"])) {
                         return this.composeReply("Contact", this.linesFor(["Contact"]), 6);
                     }
 
@@ -1691,13 +1897,13 @@
                     }
 
                     if (this.matchAny(normalized, ["available", "availability", "freelance"])) {
-                        return this.composeReply("Availability", this.linesFor(["Identity", "Contact"]).filter((line) => line.toLowerCase().includes("availability") || line.toLowerCase().includes("whatsapp") || line.toLowerCase().includes("email")), 5);
+                        return this.composeReply("Availability", this.linesFor(["Identity", "Hiring Snapshot", "Contact"]).filter((line) => line.toLowerCase().includes("availability") || line.toLowerCase().includes("engagement") || line.toLowerCase().includes("whatsapp") || line.toLowerCase().includes("email")), 6);
                     }
 
                     const searched = this.searchSections(question);
                     if (searched) return searched;
 
-                    return "Try asking about current role, experience, skills, projects, education, location, or contact details.";
+                    return "Try asking about current role, services, hiring fit, experience, projects, location, or contact details.";
                 }
             }));
         });
