@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Laravel Architect Portfolio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        laravel: {
+                            500: '#FF2D20',
+                            600: '#E0261A',
+                            900: '#8F1510',
+                        },
+                        zinc: {
+                            850: '#1f1f22',
+                            950: '#09090b',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'typing': 'typing 3.5s steps(40, end)',
+                        'blink': 'blink .75s step-end infinite',
+                        'orbit': 'orbit 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        typing: {
+                            'from': { width: '0' },
+                            'to': { width: '100%' },
+                        },
+                        blink: {
+                            'from, to': { borderColor: 'transparent' },
+                            '50%': { borderColor: '#FF2D20' },
+                        },
+                        orbit: {
+                            '0%': { transform: 'rotate(0deg) translateX(140px) rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg) translateX(140px) rotate(-360deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- PrismJS for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FF2D20; }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-strong {
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+        }
+
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased overflow-x-hidden selection:bg-laravel-500 selection:text-white">
+
+    <!-- Background Effects -->
+    <div class="fixed inset-0 bg-grid z-0 pointer-events-none"></div>
+    <div class="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-0 pointer-events-none"></div>
+
+    <!-- Custom Cursor -->
+    <div class="fixed w-8 h-8 border border-laravel-500 rounded-full pointer-events-none z-50 transition-transform duration-100 ease-out hidden md:block"
+         id="cursor" style="transform: translate(0, 0); mix-blend-mode: difference;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-40 glass-strong">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 bg-laravel-500 rounded-full animate-pulse"></div>
+                <span class="font-mono font-bold tracking-tighter">NEXUS<span class="text-laravel-500">.DEV</span></span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-mono text-zinc-400">
+                <a href="#hero" class="hover:text-laravel-500 transition-colors">Home</a>
+                <a href="#timeline" class="hover:text-laravel-500 transition-colors">Timeline</a>
+                <a href="#projects" class="hover:text-laravel-500 transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-laravel-500 transition-colors">Skills</a>
+                <a href="#contact" class="px-4 py-2 bg-white/5 hover:bg-laravel-500 hover:text-white border border-white/10 rounded transition-all duration-300">
+                    Initialize Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-16">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center px-6 relative">
+            <div class="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center">
+                <!-- Text/Terminal -->
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-laravel-500/10 border border-laravel-500/20 text-laravel-500 text-xs font-mono">
+                        <span class="relative flex h-2 w-2">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-laravel-500 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-laravel-500"></span>
+                        </span>
+                        System Online
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                        Architecting <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-laravel-500 to-orange-500">Digital Systems</span>
+                    </h1>
+                    <p class="text-zinc-400 text-lg max-w-md">
+                        Full-stack Laravel architect with expertise in scalable system design, API development, and cloud infrastructure.
+                    </p>
+
+                    <!-- Terminal Component -->
+                    <div class="glass rounded-lg overflow-hidden border border-white/10 shadow-2xl shadow-laravel-500/10">
+                        <div class="bg-zinc-900/50 px-4 py-2 flex items-center gap-2 border-b border-white/5">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span class="ml-2 text-xs text-zinc-500 font-mono">bash — 80x24</span>
+                        </div>
+                        <div class="p-4 font-mono text-sm h-48 overflow-y-auto" id="terminal-output">
+                            <div class="mb-1"><span class="text-green-400">➜</span> <span class="text-blue-400">~</span> <span>composer install</span></div>
+                            <div class="mb-1"><span class="text-zinc-600">Loading composer repositories with package information</span></div>
+                            <div class="mb-1"><span class="text-green-400">➜</span> <span class="text-blue-400">~</span> <span>php artisan serve</span></div>
+                            <div class="flex items-center">
+                                <span class="text-green-400 mr-2">➜</span>
+                                <span class="text-blue-400 mr-2">~</span>
+                                <span class="text-white">Server running on http://localhost:8000</span><span class="animate-blink w-2 h-4 bg-laravel-500 inline-block align-middle"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Display -->
+                <div class="relative hidden md:block animate-float">
+                    <div class="absolute inset-0 bg-laravel-500/20 blur-[100px] rounded-full"></div>
+                    <div class="glass p-6 rounded-xl border border-white/10 relative">
+                        <div class="absolute -top-4 -right-4 bg-zinc-900 border border-laravel-500 text-laravel-500 px-3 py-1 rounded text-xs font-mono">
+                            Laravel 11.x
+                        </div>
+                        <pre class="font-mono text-xs md:text-sm overflow-hidden"><code class="language-php">class Architecture extends Service
+{
+    public function scale(): void
+    {
+        $this->queue->push(new ProcessJob);
+        $this->cache->remember('stats', 3600, fn() =>
+            $this->db->query()->optimize()
+        );
+
+        return Response::json([
+            'status' => 'elite',
+            'performance' => '100ms'
+        ]);
+    }
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Dashboard -->
+        <section class="py-20 px-6 border-y border-white/5 bg-zinc-900/30">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center group">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-laravel-500 transition-colors">50+</div>
+                        <div class="text-sm text-zinc-500 font-mono uppercase tracking-widest">Projects Built</div>
+                    </div>
+                    <div class="text-center group">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-laravel-500 transition-colors">8+</div>
+                        <div class="text-sm text-zinc-500 font-mono uppercase tracking-widest">Years Experience</div>
+                    </div>
+                    <div class="text-center group">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-laravel-500 transition-colors">99.9%</div>
+                        <div class="text-sm text-zinc-500 font-mono uppercase tracking-widest">Uptime</div>
+                    </div>
+                    <div class="text-center group">
+                        <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:text-laravel-500 transition-colors">15+</div>
+                        <div class="text-sm text-zinc-500 font-mono uppercase tracking-widest">Team Members</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="py-32 px-6 relative">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold mb-16 flex items-center gap-4">
+                    <span class="w-8 h-[1px] bg-laravel-500"></span>
+                    Deployment Pipeline
+                </h2>
+
+                <div class="relative border-l border-white/10 ml-4 md:ml-0 space-y-12">
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-800 border-2 border-laravel-500 group-hover:scale-150 transition-transform"></div>
+                        <div class="md:grid md:grid-cols-5 gap-8 items-start">
+                            <div class="md:col-span-2 text-right hidden md:block">
+                                <div class="text-laravel-500 font-mono text-sm">2024</div>
+                                <div class="text-zinc-500 text-sm">San Francisco, CA</div>
+                            </div>
+                            <div class="md:col-span-3 glass p-6 rounded-lg border border-white/5 hover:border-laravel-500/50 transition-colors cursor-pointer">
+                                <div class="md:hidden text-laravel-500 font-mono text-xs mb-2">2024</div>
+                                <h3 class="text-xl font-bold text-white mb-2">Lead Architect</h3>
+                                <p class="text-zinc-400 text-sm mb-4">Architected and deployed microservices infrastructure supporting 1M+ daily active users</p>
+                                <div class="flex gap-2">
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">Laravel</span>
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">Kubernetes</span>
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-800 border-2 border-laravel-500 group-hover:scale-150 transition-transform"></div>
+                        <div class="md:grid md:grid-cols-5 gap-8 items-start">
+                            <div class="md:col-span-2 text-right hidden md:block">
+                                <div class="text-laravel-500 font-mono text-sm">2022</div>
+                                <div class="text-zinc-500 text-sm">Austin, TX</div>
+                            </div>
+                            <div class="md:col-span-3 glass p-6 rounded-lg border border-white/5 hover:border-laravel-500/50 transition-colors cursor-pointer">
+                                <div class="md:hidden text-laravel-500 font-mono text-xs mb-2">2022</div>
+                                <h3 class="text-xl font-bold text-white mb-2">Senior Backend Engineer</h3>
+                                <p class="text-zinc-400 text-sm mb-4">Led development of real-time API platform with GraphQL and WebSocket integration</p>
+                                <div class="flex gap-2">
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">GraphQL</span>
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">WebSocket</span>
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">Redis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-8 md:pl-0 group">
+                        <div class="absolute left-[-5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-800 border-2 border-laravel-500 group-hover:scale-150 transition-transform"></div>
+                        <div class="md:grid md:grid-cols-5 gap-8 items-start">
+                            <div class="md:col-span-2 text-right hidden md:block">
+                                <div class="text-laravel-500 font-mono text-sm">2020</div>
+                                <div class="text-zinc-500 text-sm">New York, NY</div>
+                            </div>
+                            <div class="md:col-span-3 glass p-6 rounded-lg border border-white/5 hover:border-laravel-500/50 transition-colors cursor-pointer">
+                                <div class="md:hidden text-laravel-500 font-mono text-xs mb-2">2020</div>
+                                <h3 class="text-xl font-bold text-white mb-2">Full Stack Developer</h3>
+                                <p class="text-zinc-400 text-sm mb-4">Built scalable SaaS platform handling 100K transactions per day</p>
+                                <div class="flex gap-2">
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">Laravel</span>
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">Vue.js</span>
+                                    <span class="px-2 py-1 bg-white/5 rounded text-xs text-zinc-300">MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-32 px-6 bg-zinc-900/20">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex justify-between items-end mb-16">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-2">System Architecture</h2>
+                        <p class="text-zinc-400">Selected deployments with live metrics.</p>
+                    </div>
+                    <button class="text-laravel-500 font-mono text-sm hover:underline">View All Repositories -></button>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass rounded-xl overflow-hidden border border-white/5 hover:border-laravel-500/30 transition-all duration-300 group">
+                        <div class="h-48 bg-zinc-900 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-grid opacity-30"></div>
+                            <div class="relative z-10 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                                <div class="w-8 h-[1px] bg-zinc-500"></div>
+                                <div class="w-12 h-12 rounded bg-laravel-500/20 border border-laravel-500 flex items-center justify-center text-laravel-500">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <div class="w-8 h-[1px] bg-zinc-500"></div>
+                                <div class="w-12 h-12 rounded bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 right-4 flex items-center gap-2 px-2 py-1 bg-black/50 rounded backdrop-blur">
+                                <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                                <span class="text-[10px] font-mono text-green-400">API: 45ms</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
+                            <p class="text-zinc-400 text-sm mb-4 line-clamp-2">High-performance marketplace with real-time inventory management</p>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white/5 rounded p-2">
+                                    <div class="text-xs text-zinc-500">Requests/Day</div>
+                                    <div class="text-sm font-mono">2.5M</div>
+                                </div>
+                                <div class="bg-white/5 rounded p-2">
+                                    <div class="text-xs text-zinc-500">Uptime</div>
+                                    <div class="text-sm font-mono text-green-400">99.95%</div>
+                                </div>
+                            </div>
+                            <button class="w-full py-2 bg-white/5 hover:bg-laravel-500 hover:text-white border border-white/10 rounded text-sm transition-all">
+                                View Architecture
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="glass rounded-xl overflow-hidden border border-white/5 hover:border-laravel-500/30 transition-all duration-300 group">
+                        <div class="h-48 bg-zinc-900 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-grid opacity-30"></div>
+                            <div class="relative z-10 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                                <div class="w-8 h-[1px] bg-zinc-500"></div>
+                                <div class="w-12 h-12 rounded bg-laravel-500/20 border border-laravel-500 flex items-center justify-center text-laravel-500">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <div class="w-8 h-[1px] bg-zinc-500"></div>
+                                <div class="w-12 h-12 rounded bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 right-4 flex items-center gap-2 px-2 py-1 bg-black/50 rounded backdrop-blur">
+                                <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                                <span class="text-[10px] font-mono text-green-400">API: 32ms</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Analytics Dashboard</h3>
+                            <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Real-time data visualization with WebSocket updates</p>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white/5 rounded p-2">
+                                    <div class="text-xs text-zinc-500">Requests/Day</div>
+                                    <div class="text-sm font-mono">1.8M</div>
+                                </div>
+                                <div class="bg-white/5 rounded p-2">
+                                    <div class="text-xs text-zinc-500">Uptime</div>
+                                    <div class="text-sm font-mono text-green-400">99.98%</div>
+                                </div>
+                            </div>
+                            <button class="w-full py-2 bg-white/5 hover:bg-laravel-500 hover:text-white border border-white/10 rounded text-sm transition-all">
+                                View Architecture
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="glass rounded-xl overflow-hidden border border-white/5 hover:border-laravel-500/30 transition-all duration-300 group">
+                        <div class="h-48 bg-zinc-900 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-0 bg-grid opacity-30"></div>
+                            <div class="relative z-10 flex items-center gap-4">
+                                <div class="w-12 h-12 rounded bg-blue-500/20 border border-blue-500 flex items-center justify-center text-blue-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                </div>
+                                <div class="w-8 h-[1px] bg-zinc-500"></div>
+                                <div class="w-12 h-12 rounded bg-laravel-500/20 border border-laravel-500 flex items-center justify-center text-laravel-500">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <div class="w-8 h-[1px] bg-zinc-500"></div>
+                                <div class="w-12 h-12 rounded bg-green-500/20 border border-green-500 flex items-center justify-center text-green-400">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                                </div>
+                            </div>
+                            <div class="absolute top-4 right-4 flex items-center gap-2 px-2 py-1 bg-black/50 rounded backdrop-blur">
+                                <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                                <span class="text-[10px] font-mono text-green-400">API: 28ms</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Content Management</h3>
+                            <p class="text-zinc-400 text-sm mb-4 line-clamp-2">Multi-tenant CMS with version control and collaboration</p>
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white/5 rounded p-2">
+                                    <div class="text-xs text-zinc-500">Requests/Day</div>
+                                    <div class="text-sm font-mono">950K</div>
+                                </div>
+                                <div class="bg-white/5 rounded p-2">
+                                    <div class="text-xs text-zinc-500">Uptime</div>
+                                    <div class="text-sm font-mono text-green-400">99.99%</div>
+                                </div>
+                            </div>
+                            <button class="w-full py-2 bg-white/5 hover:bg-laravel-500 hover:text-white border border-white/10 rounded text-sm transition-all">
+                                View Architecture
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-32 px-6">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Ecosystem Mastery</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold mb-3">Backend</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-laravel-500/10 border border-laravel-500/30 rounded-full text-sm">Laravel</span>
+                                <span class="px-3 py-1 bg-laravel-500/10 border border-laravel-500/30 rounded-full text-sm">PHP</span>
+                                <span class="px-3 py-1 bg-laravel-500/10 border border-laravel-500/30 rounded-full text-sm">Docker</span>
+                                <span class="px-3 py-1 bg-laravel-500/10 border border-laravel-500/30 rounded-full text-sm">Kubernetes</span>
+                                <span class="px-3 py-1 bg-laravel-500/10 border border-laravel-500/30 rounded-full text-sm">REST API</span>
+                                <span class="px-3 py-1 bg-laravel-500/10 border border-laravel-500/30 rounded-full text-sm">GraphQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-3">Databases</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm">MySQL</span>
+                                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm">Redis</span>
+                                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm">Elasticsearch</span>
+                                <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm">MongoDB</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-3">Frontend</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-sm">Tailwind CSS</span>
+                                <span class="px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-sm">TypeScript</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-3">Cloud & DevOps</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-sm">AWS</span>
+                                <span class="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-sm">GCP</span>
+                                <span class="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-sm">CI/CD</span>
+                                <span class="px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full text-sm">GitLab</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-8">Featured Snippets</h2>
+                    <div class="space-y-4">
+                        <div class="glass p-4 rounded-lg border border-white/10">
+                            <h3 class="text-sm font-bold text-laravel-500 mb-2">Eloquent Query Optimization</h3>
+                            <pre class="font-mono text-xs overflow-x-auto"><code>$users = User::query()
+    ->with(['posts', 'comments'])
+    ->whereHas('posts', fn($q) =>
+        $q->where('status', 'published')
+    )
+    ->paginate();</code></pre>
+                        </div>
+                        <div class="glass p-4 rounded-lg border border-white/10">
+                            <h3 class="text-sm font-bold text-laravel-500 mb-2">Async Job Processing</h3>
+                            <pre class="font-mono text-xs overflow-x-auto"><code>dispatch(new ProcessOrder($order))
+    ->onQueue('critical')
+    ->delay(now()->addMinutes(10))
+    ->retries(3);</code></pre>
+                        </div>
+                        <div class="glass p-4 rounded-lg border border-white/10">
+                            <h3 class="text-sm font-bold text-laravel-500 mb-2">Cache Strategy</h3>
+                            <pre class="font-mono text-xs overflow-x-auto"><code>Cache::remember('user.stats', 3600,
+    fn() => User::statistics()
+);
+
+Cache::tags(['user:1'])->flush();</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 px-6 border-t border-white/5">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to build something great?</h2>
+                <p class="text-zinc-400 text-lg mb-8">Let's collaborate on your next architecture challenge.</p>
+
+                <div class="glass p-8 rounded-xl border border-white/10">
+                    <form class="space-y-4">
+                        <input type="text" placeholder="Your name" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-zinc-500 focus:border-laravel-500 focus:outline-none transition">
+                        <input type="email" placeholder="your@email.com" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-zinc-500 focus:border-laravel-500 focus:outline-none transition">
+                        <textarea placeholder="Tell me about your project..." rows="5" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-zinc-500 focus:border-laravel-500 focus:outline-none transition resize-none"></textarea>
+                        <button type="submit" class="w-full py-3 bg-laravel-500 hover:bg-laravel-600 text-white font-bold rounded transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div class="mt-12 flex justify-center gap-6">
+                    <a href="#" class="text-zinc-400 hover:text-laravel-500 transition">GitHub</a>
+                    <a href="#" class="text-zinc-400 hover:text-laravel-500 transition">Twitter</a>
+                    <a href="#" class="text-zinc-400 hover:text-laravel-500 transition">LinkedIn</a>
+                    <a href="#" class="text-zinc-400 hover:text-laravel-500 transition">Email</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-sm text-zinc-500 font-mono">
+            <div>© 2024 Nexus.dev - All rights reserved</div>
+            <div>v1.0.0</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursor');
+            if (cursor) {
+                cursor.style.left = (e.clientX - 16) + 'px';
+                cursor.style.top = (e.clientY - 16) + 'px';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        Prism.highlightAll();
+    </script>
+</body>
+</html>
+
+
+ 
