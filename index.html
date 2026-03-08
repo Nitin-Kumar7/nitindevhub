@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -19,6 +19,7 @@
                     fontFamily: {
                         sans: ["Space Grotesk", "sans-serif"],
                         mono: ["IBM Plex Mono", "monospace"],
+                        signature: ["Caveat", "cursive"],
                     },
                     colors: {
                         ember: {
@@ -56,6 +57,11 @@
                 radial-gradient(circle at 90% 5%, rgba(56, 207, 209, 0.14), transparent 18%),
                 radial-gradient(circle at 50% 80%, rgba(255, 176, 138, 0.08), transparent 24%),
                 #050608;
+        }
+
+        html[data-agent-open="true"] nav {
+            opacity: 0;
+            pointer-events: none;
         }
 
         ::-webkit-scrollbar {
@@ -428,13 +434,88 @@
 
         <section class="px-6 py-8">
             <div class="reveal mx-auto max-w-7xl rounded-[2rem] border border-white/[0.08] bg-white/[0.04] p-5 md:p-7">
+                <div class="overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#0a0f15]">
+                    <div class="relative h-[15rem] overflow-hidden border-b border-white/[0.08] bg-[linear-gradient(135deg,#f5ede5_0%,#e6e3dc_38%,#e8e2da_100%)]">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.65),transparent_36%),linear-gradient(120deg,rgba(0,0,0,0.02),transparent_55%)]"></div>
+                        <div class="absolute -left-4 top-3 h-24 w-28 rotate-[-12deg] rounded-[1.5rem] border border-black/10 bg-[linear-gradient(145deg,#1b1b1b,#535353)] shadow-[0_20px_60px_rgba(0,0,0,0.22)]"></div>
+                        <div class="absolute left-24 top-0 h-20 w-20 rounded-full border-[10px] border-[#c99a73]/35 bg-[#fbf6ef] shadow-[0_16px_30px_rgba(0,0,0,0.12)]"></div>
+                        <div class="absolute left-10 top-10 rounded-2xl border border-black/10 bg-white/65 px-4 py-2 shadow-[0_12px_30px_rgba(0,0,0,0.08)]">
+                            <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Profile snapshot</div>
+                            <div class="mt-1 text-sm font-bold text-zinc-800">Nitin Kumar / State Infotech</div>
+                        </div>
+                        <div class="absolute right-6 top-7 max-w-[25rem] text-right md:right-10">
+                            <div class="font-signature text-5xl leading-none text-[#9d6546] md:text-6xl">Nitin Kumar</div>
+                            <div class="mt-2 text-lg font-medium text-zinc-700 md:text-2xl">Lead Developer, Manager</div>
+                            <div class="mt-4 flex justify-end">
+                                <a href="https://wa.me/98008840801" target="_blank" rel="noreferrer"
+                                    class="rounded-full bg-[#9d6546] px-5 py-2 text-sm font-semibold text-white transition hover:bg-[#874f31]">
+                                    Contact
+                                </a>
+                            </div>
+                            <div class="mt-4 mono text-[11px] text-zinc-600 md:text-xs">+91 98088 40801 | wwwnk9333@gmail.com | stateinfotech.com</div>
+                        </div>
+                    </div>
+
+                    <div class="relative px-5 pb-6 pt-20 md:px-8">
+                        <div class="absolute left-6 top-[-4.25rem] h-36 w-36 overflow-hidden rounded-full border-[6px] border-coal-900 bg-[#10141b] shadow-[0_25px_70px_rgba(0,0,0,0.45)] md:left-8">
+                            <img
+                                src="https://lh3.googleusercontent.com/a/ACg8ocJyEh8KdOYYM_FOxmlD1JYYCvm_ev3kFPM2CorKY53v9MiPOXSe=s400-c"
+                                alt="Portrait of Nitin Kumar"
+                                class="h-full w-full object-cover object-center">
+                            <div class="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.18),transparent_34%)]"></div>
+                        </div>
+
+                        <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-start">
+                            <div class="pt-2 md:pl-40">
+                                <div class="flex flex-wrap items-center gap-3">
+                                    <h2 class="text-3xl font-bold text-white md:text-4xl">Nitin Kumar</h2>
+                                    <span class="rounded-full border border-ember-400/30 bg-ember-500/10 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-ember-300">Lead Developer</span>
+                                </div>
+                                <p class="mt-3 text-lg text-zinc-200 md:text-2xl">Lead Developer | Laravel Expert | Technical Manager</p>
+                                <p class="mt-2 text-zinc-400">Noida, Uttar Pradesh, India</p>
+
+                                <div class="mt-5 flex flex-wrap gap-3">
+                                    <a href="https://wa.me/98008840801" target="_blank" rel="noreferrer"
+                                        class="inline-flex items-center justify-center rounded-full bg-ember-500 px-5 py-3 mono text-xs uppercase tracking-[0.22em] text-white transition hover:bg-ember-600">
+                                        Contact on WhatsApp
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/nitin-kumar-1a9162132/" target="_blank" rel="noreferrer"
+                                        class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-3 mono text-xs uppercase tracking-[0.22em] text-zinc-100 transition hover:border-tide-400 hover:bg-white/10">
+                                        LinkedIn Profile
+                                    </a>
+                                </div>
+
+                                <div class="mt-6 flex flex-wrap gap-5 mono text-xs uppercase tracking-[0.22em] text-zinc-500">
+                                    <span>120+ delivered projects</span>
+                                    <span>4+ years experience</span>
+                                    <span>Laravel / Livewire / APIs</span>
+                                </div>
+                            </div>
+
+                            <div class="rounded-[1.6rem] border border-white/[0.08] bg-white/[0.04] p-5">
+                                <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Current company</div>
+                                <div class="mt-2 text-2xl font-bold text-white">State Infotech</div>
+                                <div class="mt-5 grid gap-3">
+                                    <div class="rounded-2xl border border-white/[0.08] bg-black/20 p-4">
+                                        <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Role</div>
+                                        <div class="mt-2 text-lg font-bold text-white">Lead Developer & Manager</div>
+                                    </div>
+                                    <div class="rounded-2xl border border-white/[0.08] bg-black/20 p-4">
+                                        <div class="mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Specialties</div>
+                                        <div class="mt-2 text-sm leading-7 text-zinc-300">Laravel, Livewire, REST APIs, admin systems, real-time apps, and backend architecture.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
                     <div class="space-y-3">
                         <div class="mono text-xs uppercase tracking-[0.26em] text-zinc-500">Profile pulse</div>
                         <h2 class="text-2xl font-bold text-white md:text-3xl">Real portfolio signals from Nitin Kumar.</h2>
                         <p class="max-w-xl text-zinc-400">
-                            These numbers now reflect your public portfolio: experience, delivery volume, current role,
-                            and the kind of Laravel work you are available for.
+                            Delivery volume, experience, current role, and the kind of Laravel work Nitin Kumar is available for.
                         </p>
                     </div>
 
@@ -944,137 +1025,114 @@
                     </div>
                 </div>
 
-                <div x-cloak x-show="windowOpen" x-transition.opacity.duration.200ms @click.self="closeWindow()"
-                    class="fixed inset-0 z-[95] bg-black/80 backdrop-blur-xl">
-                    <div class="flex h-full w-full items-stretch justify-center p-0 md:p-4">
-                        <div class="panel flex h-[100dvh] w-full max-w-6xl flex-col overflow-hidden rounded-none md:h-[min(92dvh,58rem)] md:rounded-[2rem]">
-                            <div class="flex items-center justify-between border-b border-white/[0.08] bg-black/[0.22] px-5 py-4 md:px-6">
-                                <div class="flex items-center gap-3">
-                                    <div class="flex gap-2">
-                                        <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
-                                        <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
-                                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                <template x-if="windowOpen">
+                    <div x-transition.opacity.duration.200ms @click="closeWindow()"
+                        class="fixed inset-0 z-[95] bg-black/70 backdrop-blur-lg">
+                        <div class="pointer-events-none flex h-full w-full items-end justify-end p-0 sm:p-4 lg:p-6">
+                            <div @click.stop role="dialog" aria-modal="true"
+                                class="panel pointer-events-auto flex h-[100dvh] w-full flex-col overflow-hidden rounded-none border-white/[0.08] pt-[env(safe-area-inset-top)] sm:h-[min(84dvh,46rem)] sm:w-[min(94vw,34rem)] sm:rounded-[1.8rem] sm:pt-0 sm:shadow-[0_28px_90px_rgba(0,0,0,0.55)]">
+                                <div class="flex items-center justify-between gap-3 border-b border-white/[0.08] bg-black/[0.42] px-3 py-3 sm:px-5 sm:py-4">
+                                    <div class="flex min-w-0 items-center gap-3">
+                                        <div class="flex gap-2">
+                                            <span class="h-2.5 w-2.5 rounded-full bg-rose-500"></span>
+                                            <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
+                                        </div>
+                                        <div class="min-w-0">
+                                            <div class="mono hidden text-[10px] uppercase tracking-[0.28em] text-zinc-500 sm:block">nitin.chat</div>
+                                            <div class="truncate text-sm font-semibold text-white">Nitin Kumar</div>
+                                            <div class="text-xs text-zinc-500 sm:hidden">Profile chat</div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <div class="mono text-[10px] uppercase tracking-[0.28em] text-zinc-500">agent.window</div>
-                                        <div class="mt-1 text-sm text-zinc-300">Nitin Kumar resume agent</div>
-                                    </div>
-                                </div>
 
-                                <div class="flex items-center gap-3">
-                                    <span class="hidden rounded-full border border-tide-400/20 bg-tide-400/10 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-tide-300 sm:inline-flex">profile chat</span>
                                     <button type="button" @click="closeWindow()"
-                                        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-zinc-200 transition hover:border-ember-400 hover:bg-ember-500/10 hover:text-white">
+                                        aria-label="Close chat"
+                                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-zinc-100 transition hover:border-ember-400 hover:bg-ember-500/10 hover:text-white">
                                         <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M6 6l12 12M18 6L6 18"></path>
                                         </svg>
                                     </button>
                                 </div>
-                            </div>
 
-                            <div class="grid min-h-0 flex-1 xl:grid-cols-[21rem_minmax(0,1fr)]">
-                                <aside class="overflow-y-auto overscroll-contain border-b border-white/[0.08] bg-black/[0.18] p-5 md:p-6 xl:border-b-0 xl:border-r xl:border-white/[0.08]">
-                                    <div class="mono text-xs uppercase tracking-[0.28em] text-zinc-500">Resume agent</div>
-                                    <h3 class="mt-3 text-2xl font-bold tracking-tight text-white">Ask about Nitin Kumar.</h3>
-                                    <p class="mt-3 text-sm leading-7 text-zinc-400">
-                                        Ask about Nitin Kumar's work history, projects, skills, education, and contact details.
-                                    </p>
-
-                                    <div class="mt-6 grid gap-3">
-                                        <div class="rounded-[1.4rem] border border-white/[0.08] bg-white/[0.04] p-4">
-                                            <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Current Role</div>
-                                            <div class="mt-2 text-lg font-bold text-white">Lead Developer</div>
+                                <div class="border-b border-white/[0.08] bg-[#0b121b] px-3 py-3 sm:px-5 sm:py-4">
+                                    <div class="flex items-start justify-between gap-3">
+                                        <div>
+                                            <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Quick context</div>
+                                            <p class="mt-2 text-[13px] leading-5 text-zinc-300 sm:text-sm sm:leading-6">Ask about Nitin Kumar's work, projects, skills, experience, or contact details.</p>
                                         </div>
-                                        <div class="rounded-[1.4rem] border border-white/[0.08] bg-white/[0.04] p-4">
-                                            <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Experience</div>
-                                            <div class="mt-2 text-lg font-bold text-white">4+ Years</div>
-                                        </div>
-                                        <div class="rounded-[1.4rem] border border-white/[0.08] bg-white/[0.04] p-4">
-                                            <div class="mono text-[10px] uppercase tracking-[0.24em] text-zinc-500">Base</div>
-                                            <div class="mt-2 text-lg font-bold text-white">Noida</div>
-                                        </div>
+                                        <span class="hidden rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-emerald-300 sm:inline-flex">online</span>
                                     </div>
 
-                                    <div class="mt-8">
-                                        <div class="mono text-xs uppercase tracking-[0.24em] text-zinc-500">Suggested prompts</div>
-                                        <div class="mt-4 flex flex-wrap gap-2">
-                                            <template x-for="suggestion in activeSuggestions.slice(0, 6)" :key="suggestion + '-window'">
-                                                <button type="button" @click="askSuggestion(suggestion)"
-                                                    class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-left text-sm text-zinc-300 transition hover:border-ember-400 hover:bg-ember-500/10 hover:text-white"
-                                                    x-text="suggestion"></button>
-                                            </template>
-                                        </div>
+                                    <div class="mt-3 flex flex-wrap gap-2">
+                                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 mono text-[10px] uppercase tracking-[0.2em] text-zinc-300">Lead Developer</span>
+                                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 mono text-[10px] uppercase tracking-[0.2em] text-zinc-300">4+ Years</span>
+                                        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 mono text-[10px] uppercase tracking-[0.2em] text-zinc-300">Noida</span>
                                     </div>
-                                </aside>
+                                </div>
 
-                                <div class="flex min-h-0 flex-col bg-[#091019]/60">
-                                    <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.08] px-5 py-4 md:px-6">
-                                        <div class="flex items-center gap-3">
-                                            <div class="mono text-[10px] uppercase tracking-[0.28em] text-zinc-500">agent.console</div>
-                                            <div class="text-sm text-zinc-300">Ask about work, projects, skills, education, or contact.</div>
-                                        </div>
-
-                                        <div class="flex flex-wrap gap-2">
-                                            <span class="rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-emerald-300">experience</span>
-                                            <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-zinc-400">projects</span>
-                                            <span class="rounded-full border border-tide-400/20 bg-tide-400/10 px-3 py-1 mono text-[10px] uppercase tracking-[0.22em] text-tide-300">contact</span>
-                                        </div>
-                                    </div>
-
-                                    <div x-ref="thread" class="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain px-5 py-5 md:px-6">
+                                <div class="flex min-h-0 flex-1 flex-col bg-[#091019]/90">
+                                    <div x-ref="thread"
+                                        class="min-h-0 flex-1 space-y-3 overflow-y-auto overscroll-contain bg-[radial-gradient(circle_at_top,_rgba(20,66,86,0.18),_transparent_48%),linear-gradient(180deg,rgba(6,10,16,0.96),rgba(9,16,25,0.96))] px-3 py-3 touch-pan-y sm:space-y-4 sm:px-5 sm:py-5">
                                         <template x-for="(message, index) in messages" :key="index">
-                                            <div :class="message.role === 'user' ? 'ml-auto max-w-[88%]' : 'max-w-[88%]'">
-                                                <div :class="message.role === 'user' ? 'rounded-[1.5rem] rounded-br-md border border-ember-400/30 bg-ember-500/10 p-5' : 'rounded-[1.5rem] rounded-bl-md border border-white/[0.08] bg-white/[0.04] p-5'">
-                                                    <div class="mb-3 flex items-center gap-3">
-                                                        <span class="mono text-[10px] uppercase tracking-[0.24em]" :class="message.role === 'user' ? 'text-ember-300' : 'text-tide-300'" x-text="message.role === 'user' ? 'Visitor' : 'Resume Agent'"></span>
-                                                        <span x-show="message.role === 'assistant'" class="rounded-full border border-white/10 bg-black/20 px-2 py-1 mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Nitin profile</span>
+                                            <div :class="message.role === 'user' ? 'ml-auto max-w-[92%] sm:max-w-[86%]' : 'max-w-[94%] sm:max-w-[88%]'">
+                                                <div :class="message.role === 'user' ? 'rounded-[1.3rem] rounded-br-md border border-ember-400/30 bg-ember-500/10 p-4 sm:rounded-[1.4rem] sm:p-5' : 'rounded-[1.3rem] rounded-bl-md border border-white/[0.08] bg-white/[0.04] p-4 sm:rounded-[1.4rem] sm:p-5'">
+                                                    <div class="mb-2 flex items-center gap-3 sm:mb-3">
+                                                        <span class="mono text-[10px] uppercase tracking-[0.24em]"
+                                                            :class="message.role === 'user' ? 'text-ember-300' : 'text-tide-300'"
+                                                            x-text="message.role === 'user' ? 'Visitor' : 'Resume Agent'"></span>
+                                                        <span x-show="message.role === 'assistant'"
+                                                            class="rounded-full border border-white/10 bg-black/20 px-2 py-1 mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Nitin profile</span>
                                                     </div>
-                                                    <p class="whitespace-pre-line text-sm leading-7 text-zinc-200" x-text="message.content"></p>
+                                                    <p class="whitespace-pre-line text-[15px] leading-7 text-zinc-200 sm:text-sm" x-text="message.content"></p>
                                                 </div>
                                             </div>
                                         </template>
 
-                                        <div x-cloak x-show="thinking" class="max-w-[70%]">
-                                            <div class="rounded-[1.5rem] rounded-bl-md border border-white/[0.08] bg-white/[0.04] p-5">
-                                                <div class="mb-3 mono text-[10px] uppercase tracking-[0.24em] text-tide-300">Resume Agent</div>
+                                        <div x-cloak x-show="thinking" class="max-w-[84%] sm:max-w-[78%]">
+                                            <div class="rounded-[1.3rem] rounded-bl-md border border-white/[0.08] bg-white/[0.04] p-4 sm:rounded-[1.4rem] sm:p-5">
+                                                <div class="mb-2 mono text-[10px] uppercase tracking-[0.24em] text-tide-300 sm:mb-3">Resume Agent</div>
                                                 <div class="flex items-center gap-2">
-                                                    <span class="h-2.5 w-2.5 rounded-full bg-tide-400 animate-pulse"></span>
-                                                    <span class="h-2.5 w-2.5 rounded-full bg-tide-400 animate-pulse [animation-delay:120ms]"></span>
-                                                    <span class="h-2.5 w-2.5 rounded-full bg-tide-400 animate-pulse [animation-delay:240ms]"></span>
+                                                    <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-tide-400"></span>
+                                                    <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-tide-400 [animation-delay:120ms]"></span>
+                                                    <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-tide-400 [animation-delay:240ms]"></span>
                                                     <span class="mono text-xs uppercase tracking-[0.22em] text-zinc-500">preparing reply</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="border-t border-white/[0.08] px-5 py-5 md:px-6">
-                                        <div class="mb-4 flex flex-wrap gap-2">
+                                    <div class="border-t border-white/[0.08] bg-[#091019] px-3 py-3 sm:px-5 sm:py-4">
+                                        <div class="mb-3 flex gap-2 overflow-x-auto pb-1 sm:mb-4 sm:flex-wrap">
                                             <template x-for="suggestion in activeSuggestions.slice(0, 3)" :key="suggestion + '-footer'">
                                                 <button type="button" @click="askSuggestion(suggestion)"
-                                                    class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300 transition hover:border-ember-400 hover:bg-ember-500/10 hover:text-white"
+                                                    class="shrink-0 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-left text-sm text-zinc-300 transition hover:border-ember-400 hover:bg-ember-500/10 hover:text-white"
                                                     x-text="suggestion"></button>
                                             </template>
                                         </div>
 
-                                        <form @submit.prevent="send()" class="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto]">
+                                        <form @submit.prevent="send()" class="flex items-center gap-2 sm:gap-3">
                                             <input x-ref="agentInput" x-model="draft" type="text"
-                                                placeholder="Ask about experience, projects, skills, contact, education, or current role"
-                                                class="w-full rounded-[1.4rem] border border-white/10 bg-white/5 px-5 py-4 text-white outline-none transition placeholder:text-zinc-600 focus:border-ember-400">
+                                                placeholder="Ask about Nitin"
+                                                class="min-w-0 flex-1 rounded-[1.15rem] border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-zinc-600 focus:border-ember-400 sm:rounded-[1.3rem] sm:px-5 sm:py-4 sm:placeholder:text-zinc-600">
                                             <button type="submit"
-                                                class="inline-flex items-center justify-center rounded-[1.4rem] bg-ember-500 px-6 py-4 mono text-xs uppercase tracking-[0.22em] text-white transition hover:bg-ember-600">
-                                                Ask Agent
+                                                aria-label="Send message"
+                                                class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-ember-500 text-white transition hover:bg-ember-600 sm:h-auto sm:w-auto sm:rounded-[1.3rem] sm:px-6 sm:py-4">
+                                                <svg class="h-5 w-5 sm:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 12h12m0 0-4-4m4 4-4 4"></path>
+                                                </svg>
+                                                <span class="hidden mono text-xs uppercase tracking-[0.22em] sm:inline">Ask Agent</span>
                                             </button>
                                         </form>
 
-                                        <p class="mt-3 mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">
-                                            Ask about current role, experience, skills, projects, education, location, or contact.
+                                        <p class="mt-3 hidden mono text-[10px] uppercase tracking-[0.22em] text-zinc-500 sm:block">
+                                            Current role, experience, stack, projects, education, location, or contact.
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </template>
             </div>
         </section>
 
@@ -1471,6 +1529,11 @@
                     document.body.style.overflow = locked ? "hidden" : "";
                     document.documentElement.style.overscrollBehavior = locked ? "none" : "";
                     document.body.style.overscrollBehavior = locked ? "none" : "";
+                    if (locked) {
+                        document.documentElement.setAttribute("data-agent-open", "true");
+                    } else {
+                        document.documentElement.removeAttribute("data-agent-open");
+                    }
                 },
                 openWindow() {
                     if (this.windowOpen) return;
